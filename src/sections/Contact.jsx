@@ -26,7 +26,7 @@ export default function Contact() {
         <Reveal delay={0.2}>
           <div className="flex justify-center gap-4 mt-8">
             <a
-              href="https://github.com/tu-usuario"
+              href="https://github.com/ignaMartin22"
               target="_blank"
               rel="noopener noreferrer"
               className="w-11 h-11 rounded-full flex items-center justify-center border border-text-secondary-light/20 dark:border-text-secondary-dark/20 text-text-secondary-light dark:text-text-secondary-dark hover:border-accent-light dark:hover:border-accent-dark hover:text-accent-light dark:hover:text-accent-dark hover:-translate-y-1 hover:shadow-lg hover:shadow-accent-light/20 dark:hover:shadow-accent-dark/20 transition-all duration-300"
@@ -34,7 +34,7 @@ export default function Contact() {
               <SiGithub className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com/in/tu-usuario"
+              href="https://linkedin.com/in/ignacio-martin-6492142b2"
               target="_blank"
               rel="noopener noreferrer"
               className="w-11 h-11 rounded-full flex items-center justify-center border border-text-secondary-light/20 dark:border-text-secondary-dark/20 text-text-secondary-light dark:text-text-secondary-dark hover:border-accent-light dark:hover:border-accent-dark hover:text-accent-light dark:hover:text-accent-dark hover:-translate-y-1 hover:shadow-lg hover:shadow-accent-light/20 dark:hover:shadow-accent-dark/20 transition-all duration-300"
