@@ -28,27 +28,50 @@ export default function Experience() {
           <div className="grid md:grid-cols-[220px_1fr] gap-6">
             {/* Lista lateral */}
             <div className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible">
-              {experiencias.map((exp) => (
-                <button
+              {experiencias.map((exp) => {
+                  const isActive = activeId === exp.id;
+                  return (
+                <motion.button
                   key={exp.id}
                   onClick={() => setActiveId(exp.id)}
+                  whileTap={{ scale: 0.97 }}
                   className={`
-                    text-left px-4 py-3 rounded-xl border shrink-0 md:shrink transition-colors duration-200
+                    relative text-left px-4 py-3 rounded-xl border shrink-0 md:shrink transition-colors duration-200
                     ${
-                      activeId === exp.id
-                        ? 'border-accent-light dark:border-accent-dark bg-accent-light/5 dark:bg-accent-dark/5'
+                      isActive
+                        ? 'border-transparent'
                         : 'border-text-secondary-light/15 dark:border-text-secondary-dark/15 hover:border-accent-light/50 dark:hover:border-accent-dark/50'
                     }
                   `}
                 >
-                  <p className="text-text-light dark:text-text-dark font-medium text-sm">
+                  {isActive && (
+                    <motion.span
+                      layoutId="exp-pill"
+                      transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+                      className="absolute inset-0 rounded-xl bg-accent-light dark:bg-accent-dark"
+                    />
+                  )}
+                  <p
+                    className={`relative z-10 text-sm font-medium transition-colors duration-200 ${
+                      isActive
+                        ? 'text-white dark:text-bg-dark'
+                        : 'text-text-light dark:text-text-dark'
+                    }`}
+                  >
                     {exp.company}
                   </p>
-                  <p className="text-text-secondary-light dark:text-text-secondary-dark text-xs">
+                  <p
+                    className={`relative z-10 text-xs transition-colors duration-200 ${
+                      isActive
+                        ? 'text-white/80 dark:text-bg-dark/80'
+                        : 'text-text-secondary-light dark:text-text-secondary-dark'
+                    }`}
+                  >
                     {exp.period}
                   </p>
-                </button>
-              ))}
+                </motion.button>
+                  );
+                })}
             </div>
 
             {/* Panel de detalle */}

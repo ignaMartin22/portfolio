@@ -86,7 +86,11 @@ export const aboutData = {
     label: 'Diplomas',
     type: 'list',
     items: [
-      { title: 'Nombre del diploma/certificado', subtitle: 'Institución — Año' },
+      {
+        title: 'EF SET English Certificate 60/100 (B2 Upper Intermediate)',
+        subtitle: 'EF SET — 2026',
+        url: 'https://cert.efset.org/en/hh53JV',
+      },
     ],
   },
   idiomas:{
@@ -94,7 +98,7 @@ export const aboutData = {
     type: 'list',
     items: [
       { title: 'Español', subtitle: 'Nativo' },
-      { title: 'Inglés', subtitle: 'Intermedio - C1' },
+      { title: 'Inglés', subtitle: 'Intermedio - B2' },
     ],
   }
 };

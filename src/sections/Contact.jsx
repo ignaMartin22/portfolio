@@ -29,7 +29,7 @@ export default function Contact() {
               href="https://github.com/tu-usuario"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-11 h-11 rounded-full flex items-center justify-center border border-text-secondary-light/20 dark:border-text-secondary-dark/20 text-text-secondary-light dark:text-text-secondary-dark hover:border-accent-light dark:hover:border-accent-dark hover:text-accent-light dark:hover:text-accent-dark transition-colors duration-300"
+              className="w-11 h-11 rounded-full flex items-center justify-center border border-text-secondary-light/20 dark:border-text-secondary-dark/20 text-text-secondary-light dark:text-text-secondary-dark hover:border-accent-light dark:hover:border-accent-dark hover:text-accent-light dark:hover:text-accent-dark hover:-translate-y-1 hover:shadow-lg hover:shadow-accent-light/20 dark:hover:shadow-accent-dark/20 transition-all duration-300"
             >
               <SiGithub className="w-5 h-5" />
             </a>
@@ -37,7 +37,7 @@ export default function Contact() {
               href="https://linkedin.com/in/tu-usuario"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-11 h-11 rounded-full flex items-center justify-center border border-text-secondary-light/20 dark:border-text-secondary-dark/20 text-text-secondary-light dark:text-text-secondary-dark hover:border-accent-light dark:hover:border-accent-dark hover:text-accent-light dark:hover:text-accent-dark transition-colors duration-300"
+              className="w-11 h-11 rounded-full flex items-center justify-center border border-text-secondary-light/20 dark:border-text-secondary-dark/20 text-text-secondary-light dark:text-text-secondary-dark hover:border-accent-light dark:hover:border-accent-dark hover:text-accent-light dark:hover:text-accent-dark hover:-translate-y-1 hover:shadow-lg hover:shadow-accent-light/20 dark:hover:shadow-accent-dark/20 transition-all duration-300"
             >
               <TbBrandLinkedin className="w-5 h-5" />
             </a>

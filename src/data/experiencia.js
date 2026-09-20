@@ -5,7 +5,7 @@ export const experiencias = [
     id: 'khai',
     company: 'Khai',
     role: 'Full-Stack Developer',
-    period: '2025 — Presente',
+    period: '2025 — 2026',
     tags: ['E-commerce', 'Freelance'],
     description:
       'Tienda de ropa desarrollada para un emprendimiento real, desde cero hasta producción.',
@@ -27,20 +27,21 @@ export const experiencias = [
       },
     ],
   },
-  {
-    id: 'formacion',
-    company: 'UNJu',
-    role: 'Estudiante — Analista Programador',
-    period: '20XX — Presente',
-    tags: ['Formación', 'Facultad de Ingeniería'],
-    description:
-      'Formación universitaria enfocada en desarrollo de software, con proyectos aplicados en cada nivel.',
-    highlights: [
-      {
-        icon: TbRocket,
-        title: 'Proyectos aplicados',
-        text: 'Prácticas y trabajos con foco en llevar la teoría a productos usables, no solo ejercicios académicos.',
-      },
-    ],
-  },
+{
+  id: 'formacion',
+  company: 'Universidad Nacional de Jujuy (UNJu)',
+  role: 'Analista Programador Universitario',
+  period: '2023 — Presente',
+  tags: ['Formación académica', 'Facultad de Ingeniería'],
+  description:
+    'Formación universitaria en análisis, diseño y desarrollo de software, combinando fundamentos teóricos con proyectos prácticos orientados a la resolución de problemas.',
+  highlights: [
+    {
+      icon: TbRocket,
+      title: 'Desarrollo aplicado',
+      text:
+        'Implementación de proyectos que integran análisis de requerimientos, diseño de soluciones, desarrollo de software y aplicación de buenas prácticas.',
+    },
+  ],
+},
 ];

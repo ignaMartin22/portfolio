@@ -61,6 +61,8 @@ export default function ProjectCarousel({ images = [], alt }) {
         group relative rounded-2xl overflow-hidden shadow-xl
         border border-text-secondary-light/10 dark:border-text-secondary-dark/10
         bg-surface-light dark:bg-surface-dark
+        transition-shadow duration-500
+        hover:shadow-2xl hover:shadow-accent-light/10 dark:hover:shadow-accent-dark/10
       "
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}

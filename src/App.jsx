@@ -7,10 +7,13 @@ import About from './sections/About'
 import Contact from './sections/Contact'
 import Experience from './sections/Experience'
 import SectionDivider from './components/SectionDivider'
+import ScrollProgress from './components/ScrollProgress'
+import TechMarquee from './components/TechMarquee'
 
 function App() {
   return (
     <>
+      <ScrollProgress />
       <WebPattern />
       <Navbar />
       <SectionDivider />
@@ -18,6 +21,7 @@ function App() {
       <main>
         <Hero />
         <SectionDivider />
+        <TechMarquee />
         <About />
         <SectionDivider />
         <Experience />

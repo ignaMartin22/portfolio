@@ -1,4 +1,27 @@
+import {
+  SiAngular, SiCloudinary, SiExpo, SiExpress, SiJsonwebtokens, SiMongodb,
+  SiNodedotjs, SiReact, SiSupabase, SiTailwindcss, SiVercel,
+} from 'react-icons/si';
+
 export const proyectos = [
+  {
+    name: 'PraxisApp',
+    tag: 'Gestión de expedientes · App móvil · Saas',
+    description:
+      'Aplicación móvil para estudios jurídicos que digitaliza la gestión de expedientes: seguimiento de causas, estados, plazos y movimientos de cada expediente en un solo lugar. Desarrollada para acompañar el trabajo diario de un estudio real de abogados.',
+    images: [
+      'Praxis_Logo.jpg',
+      'PraxisApp-img2jpg.jpg',
+      'PraxisApp-img3.jpg',
+      'PraxisApp-img4.jpg',
+    ],
+    link: '#',
+    tech: [
+      { name: 'React Native', icon: SiReact },
+      { name: 'Expo Go', icon: SiExpo },
+      { name: 'Supabase', icon: SiSupabase },
+    ],
+  },
   {
     name: 'Tienda Khai Love',
     tag: 'Tienda de ropa · Web app',
@@ -10,27 +33,15 @@ export const proyectos = [
       '/tienda-khai-img3.jpg',
     ],
     link: 'https://khai-love.vercel.app',
-  },
-  {
-    name: 'Proyecto 2',
-    tag: 'Categoría · Tipo',
-    description: 'Descripción breve del segundo proyecto.',
-    images: [
-      '/proyectos/proyecto2-1.png',
-      '/proyectos/proyecto2-2.png',
-      '/proyectos/proyecto2-3.png',
+    tech: [
+      { name: 'Angular', icon: SiAngular },
+      { name: 'Node.js', icon: SiNodedotjs },
+      { name: 'Express', icon: SiExpress },
+      { name: 'MongoDB', icon: SiMongodb },
+      { name: 'JWT', icon: SiJsonwebtokens },
+      { name: 'Tailwind', icon: SiTailwindcss },
+      { name: 'Cloudinary', icon: SiCloudinary },
+      { name: 'Vercel', icon: SiVercel },
     ],
-    link: '#',
-  },
-  {
-    name: 'Proyecto 3',
-    tag: 'Categoría · Tipo',
-    description: 'Descripción breve del tercer proyecto.',
-    images: [
-      '/proyectos/proyecto3-1.png',
-      '/proyectos/proyecto3-2.png',
-      '/proyectos/proyecto3-3.png',
-    ],
-    link: '#',
   },
 ];
