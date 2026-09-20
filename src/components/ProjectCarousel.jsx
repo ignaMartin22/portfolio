@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2';
 
@@ -24,6 +24,7 @@ export default function ProjectCarousel({ images = [], alt }) {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [paused, setPaused] = useState(false);
+  const dragStart = useRef(null);
 
   const count = slides.length;
   const current = ((index % count) + count) % count;
@@ -53,6 +54,27 @@ export default function ProjectCarousel({ images = [], alt }) {
     return () => window.clearInterval(id);
   }, [paused, count, current]);
 
+  // Gestos táctiles / arrastre horizontal
+  const handlePointerDown = (e) => {
+    dragStart.current = { x: e.clientX, t: Date.now() };
+  };
+
+  const handlePointerUp = (e) => {
+    if (!dragStart.current) return;
+    const dx = e.clientX - dragStart.current.x;
+    const dt = Date.now() - dragStart.current.t;
+    dragStart.current = null;
+    const velocity = Math.abs(dx) / Math.max(dt, 1);
+    if (Math.abs(dx) > 44 || velocity > 0.5) {
+      if (dx < 0) step(1);
+      else step(-1);
+    }
+  };
+
+  const handlePointerCancel = () => {
+    dragStart.current = null;
+  };
+
   if (!count) return null;
 
   return (
@@ -71,7 +93,12 @@ export default function ProjectCarousel({ images = [], alt }) {
         if (!e.currentTarget.contains(e.relatedTarget)) setPaused(false);
       }}
     >
-      <div className="relative aspect-[16/10] bg-text-secondary-light/5 dark:bg-white/[0.03]">
+      <div
+        className="relative aspect-[16/10] bg-text-secondary-light/5 dark:bg-white/[0.03] touch-pan-y select-none cursor-grab active:cursor-grabbing"
+        onPointerDown={handlePointerDown}
+        onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerCancel}
+      >
         <AnimatePresence initial={false} custom={direction}>
           <motion.img
             key={`${slides[current]}-${current}`}
@@ -84,6 +111,8 @@ export default function ProjectCarousel({ images = [], alt }) {
             exit="exit"
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
             draggable={false}
           />
         </AnimatePresence>
@@ -97,13 +126,13 @@ export default function ProjectCarousel({ images = [], alt }) {
             onClick={() => step(-1)}
             className="
               absolute left-3 top-1/2 -translate-y-1/2 z-10
-              w-9 h-9 rounded-full
+              w-10 h-10 rounded-full
               flex items-center justify-center
               bg-bg-light/80 dark:bg-bg-dark/80
               text-text-light dark:text-text-dark
               border border-text-secondary-light/15 dark:border-text-secondary-dark/15
               backdrop-blur-md
-              opacity-0 group-hover:opacity-100 group-focus-within:opacity-100
+              md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100
               hover:border-accent-light dark:hover:border-accent-dark
               hover:text-accent-light dark:hover:text-accent-dark
               transition-all duration-300
@@ -117,13 +146,13 @@ export default function ProjectCarousel({ images = [], alt }) {
             onClick={() => step(1)}
             className="
               absolute right-3 top-1/2 -translate-y-1/2 z-10
-              w-9 h-9 rounded-full
+              w-10 h-10 rounded-full
               flex items-center justify-center
               bg-bg-light/80 dark:bg-bg-dark/80
               text-text-light dark:text-text-dark
               border border-text-secondary-light/15 dark:border-text-secondary-dark/15
               backdrop-blur-md
-              opacity-0 group-hover:opacity-100 group-focus-within:opacity-100
+              md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100
               hover:border-accent-light dark:hover:border-accent-dark
               hover:text-accent-light dark:hover:text-accent-dark
               transition-all duration-300

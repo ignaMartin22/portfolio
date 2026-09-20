@@ -29,7 +29,7 @@ export const experiencias = [
   },
 {
   id: 'formacion',
-  company: 'Universidad Nacional de Jujuy (UNJu)',
+  company: 'UNJU - Facultad de Ingeniería',
   role: 'Analista Programador Universitario',
   period: '2023 — Presente',
   tags: ['Formación académica', 'Facultad de Ingeniería'],

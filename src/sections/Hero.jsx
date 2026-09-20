@@ -38,18 +38,18 @@ export default function Hero() {
       {/* Glows ambientales */}
       <motion.div
         aria-hidden
-        className="absolute -top-40 -left-40 w-[36rem] h-[36rem] rounded-full bg-accent-light/15 dark:bg-accent-dark/15 blur-[130px]"
+        className="absolute -top-40 -left-40 w-[36rem] h-[36rem] rounded-full bg-accent-light/15 dark:bg-accent-dark/15 blur-[130px] pointer-events-none"
         animate={{ x: [0, 50, 0], y: [0, 70, 0], scale: [1, 1.12, 1] }}
         transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
         aria-hidden
-        className="absolute -bottom-40 -right-40 w-[32rem] h-[32rem] rounded-full bg-accent-light/10 dark:bg-accent-dark/10 blur-[130px]"
+        className="absolute -bottom-40 -right-40 w-[32rem] h-[32rem] rounded-full bg-accent-light/10 dark:bg-accent-dark/10 blur-[130px] pointer-events-none"
         animate={{ x: [0, -45, 0], y: [0, -50, 0], scale: [1.12, 1, 1.12] }}
         transition={{ duration: 19, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
       />
 
-      <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-8 items-center px-8 pt-24">
+      <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-8 md:gap-8 items-center px-8 pt-24 md:pt-28 pb-20 md:pb-0">
         {/* Tarjeta glassmorphism + grid tech */}
         <motion.div
           initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
@@ -57,17 +57,17 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: EASE }}
           className="relative flex justify-center md:justify-start"
         >
-          <div className="relative w-[82vw] max-w-[390px] md:w-[88%] md:max-w-[430px]">
+          <div className="relative w-[72vw] max-w-[300px] md:w-[88%] md:max-w-[430px]">
             {/* Halo detrás de la tarjeta */}
             <div
               aria-hidden
-              className="absolute -inset-8 rounded-[2.5rem] bg-accent-light/20 dark:bg-accent-dark/20 blur-3xl"
+              className="absolute -inset-8 rounded-[2.5rem] bg-accent-light/20 dark:bg-accent-dark/20 blur-3xl pointer-events-none"
             />
 
             {/* Marco punteado perimetral */}
             <div
               aria-hidden
-              className="absolute -inset-2 rounded-[1.4rem] border border-dashed border-accent-light/30 dark:border-accent-dark/30"
+              className="absolute -inset-2 rounded-[1.4rem] border border-dashed border-accent-light/30 dark:border-accent-dark/30 pointer-events-none"
             />
 
             {/* Card de vidrio */}
@@ -92,16 +92,17 @@ export default function Hero() {
                 <img
                   src="/ignacioMartin_red.jpeg"
                   alt="Ignacio Martín"
+                  fetchPriority="high"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
 
                 {/* Grid overlay */}
-                <div aria-hidden className="tech-grid absolute inset-0 opacity-80" />
+                <div aria-hidden className="tech-grid absolute inset-0 opacity-80 pointer-events-none" />
 
                 {/* Degradados para integrar la red con la foto */}
                 <div
                   aria-hidden
-                  className="absolute inset-0 bg-gradient-to-t from-bg-light/40 dark:from-bg-dark/50 via-transparent to-transparent"
+                  className="absolute inset-0 bg-gradient-to-t from-bg-light/40 dark:from-bg-dark/50 via-transparent to-transparent pointer-events-none"
                 />
 
                 {/* Línea de escaneo */}
@@ -146,7 +147,7 @@ export default function Hero() {
               <motion.div
                 key={label}
                 className={`
-                  absolute ${position} hidden sm:flex md:block
+                  absolute ${position} hidden md:flex
                   items-center gap-2 px-3 py-2 rounded-full
                   bg-white/10 dark:bg-white/5 backdrop-blur-xl
                   border border-white/20 dark:border-white/10
@@ -206,7 +207,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-text-secondary-light dark:text-text-secondary-dark"
+        className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-3 text-text-secondary-light dark:text-text-secondary-dark"
         aria-hidden
       >
         <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>

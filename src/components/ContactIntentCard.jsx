@@ -10,7 +10,7 @@ export default function ContactIntentCard() {
   };
 
   return (
-    <div className="relative rounded-2xl p-6 bg-white/5 dark:bg-white/[0.03] backdrop-blur-md border border-text-secondary-light/15 dark:border-text-secondary-dark/15">
+    <div className="relative rounded-2xl p-5 sm:p-6 bg-white/5 dark:bg-white/[0.03] backdrop-blur-md border border-text-secondary-light/15 dark:border-text-secondary-dark/15">
       <span className="absolute top-0 left-0 w-6 h-6 border-t border-l border-accent-light dark:border-accent-dark rounded-tl-2xl" />
       <span className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-accent-light dark:border-accent-dark rounded-br-2xl" />
 
@@ -58,7 +58,7 @@ export default function ContactIntentCard() {
             key={intent.label}
             onClick={() => handleIntent(intent.message)}
             className={`
-              px-4 py-3 rounded-xl text-sm font-medium text-left
+              px-4 py-3 min-h-[46px] rounded-xl text-sm font-medium text-left
               border border-text-secondary-light/15 dark:border-text-secondary-dark/15
               text-text-light dark:text-text-dark
               hover:border-accent-light dark:hover:border-accent-dark

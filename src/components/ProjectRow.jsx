@@ -87,7 +87,7 @@ export default function ProjectRow({ project, reverse = false, index = 0 }) {
   return (
     <div
       className={`
-        grid md:grid-cols-2 gap-10 items-center group/row
+        grid md:grid-cols-2 gap-8 md:gap-10 items-center group/row
         ${reverse ? 'md:[&>*:first-child]:order-2' : ''}
       `}
     >

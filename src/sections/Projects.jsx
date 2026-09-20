@@ -12,7 +12,7 @@ export default function Projects() {
           </div>
         </Reveal>
 
-        <div className="space-y-24">
+        <div className="space-y-16 md:space-y-24">
           {proyectos.map((project, i) => (
             <Reveal key={project.name} delay={0.1}>
               <ProjectRow project={project} reverse={i % 2 !== 0} index={i} />

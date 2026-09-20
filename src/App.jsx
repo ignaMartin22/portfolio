@@ -1,3 +1,4 @@
+import { MotionConfig } from 'motion/react'
 import Hero from './sections/Hero'
 import Navbar from './components/Navbar'
 import SpideyScrollCompanion from './components/SpideyScrollCompanion'
@@ -12,7 +13,7 @@ import TechMarquee from './components/TechMarquee'
 
 function App() {
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <ScrollProgress />
       <WebPattern />
       <Navbar />
@@ -30,7 +31,7 @@ function App() {
         <SectionDivider />
         <Contact />
       </main>
-    </>
+    </MotionConfig>
   );
 }
 

@@ -20,7 +20,7 @@ export default function About() {
             <SectionTitle>Sobre mí</SectionTitle>
           </div>
           <p className="text-text-secondary-light dark:text-text-secondary-dark text-center max-w-2xl mx-auto mb-12">
-            Soy Ignacio Martín, estudiante de Analista Programador en la UNJu
+            Soy Ignacio Martín, tengo 22 años. Soy estudiante avanzado de Analista Programador en la UNJu
             y desarrollador Full-Stack. Me apasiona construir cosas que
             funcionen bien y se vean mejor — desde el backend hasta el último
             detalle de una animación.
@@ -67,7 +67,7 @@ export default function About() {
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.25 }}
             className="
-              relative rounded-2xl p-8
+              relative rounded-2xl p-6 sm:p-8
               bg-white/5 dark:bg-white/[0.03]
               backdrop-blur-md
               border border-accent-light/20 dark:border-accent-dark/20

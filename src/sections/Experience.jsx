@@ -27,7 +27,7 @@ export default function Experience() {
         <Reveal delay={0.1}>
           <div className="grid md:grid-cols-[220px_1fr] gap-6">
             {/* Lista lateral */}
-            <div className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible">
+            <div className="flex flex-col gap-2">
               {experiencias.map((exp) => {
                   const isActive = activeId === exp.id;
                   return (
@@ -36,7 +36,8 @@ export default function Experience() {
                   onClick={() => setActiveId(exp.id)}
                   whileTap={{ scale: 0.97 }}
                   className={`
-                    relative text-left px-4 py-3 rounded-xl border shrink-0 md:shrink transition-colors duration-200
+                    relative w-full text-left
+                    px-4 py-3 rounded-xl border transition-colors duration-200
                     ${
                       isActive
                         ? 'border-transparent'
@@ -82,7 +83,7 @@ export default function Experience() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -15 }}
                 transition={{ duration: 0.25 }}
-                className="relative rounded-2xl p-8 bg-white/5 dark:bg-white/[0.03] backdrop-blur-md border border-accent-light/20 dark:border-accent-dark/20"
+                className="relative rounded-2xl p-6 sm:p-8 bg-white/5 dark:bg-white/[0.03] backdrop-blur-md border border-accent-light/20 dark:border-accent-dark/20"
               >
                 <span className="absolute top-0 left-0 w-6 h-6 border-t border-l border-accent-light dark:border-accent-dark rounded-tl-2xl" />
                 <span className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-accent-light dark:border-accent-dark rounded-br-2xl" />

@@ -10,10 +10,10 @@ export const proyectos = [
     description:
       'Aplicación móvil para estudios jurídicos que digitaliza la gestión de expedientes: seguimiento de causas, estados, plazos y movimientos de cada expediente en un solo lugar. Desarrollada para acompañar el trabajo diario de un estudio real de abogados.',
     images: [
-      'Praxis_Logo.jpg',
-      'PraxisApp-img2jpg.jpg',
-      'PraxisApp-img3.jpg',
-      'PraxisApp-img4.jpg',
+      '/Praxis_Logo.jpg',
+      '/PraxisApp-img2jpg.jpg',
+      '/PraxisApp-img3.jpg',
+      '/PraxisApp-img4.jpg',
     ],
     link: '#',
     tech: [

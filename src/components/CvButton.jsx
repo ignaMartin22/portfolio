@@ -24,7 +24,7 @@ export default function CvButton() {
         onClick={() => setIsOpen(true)}
         className="
           inline-flex items-center gap-3 mt-6
-          px-6 py-3 rounded-full
+          px-6 py-3 rounded-full touch-manipulation
           bg-accent-light dark:bg-accent-dark
           text-white dark:text-bg-dark font-medium text-sm
           hover:-translate-y-0.5 hover:shadow-xl
