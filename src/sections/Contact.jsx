@@ -2,20 +2,23 @@ import { SiGithub } from 'react-icons/si';
 import { TbBrandLinkedin } from 'react-icons/tb';
 import ContactIntentCard from '../components/ContactIntentCard';
 import Reveal from '../components/Reveal';
+import { useLanguage } from '../i18n/useLanguage';
 
 export default function Contact() {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="py-24 px-6 sm:px-10 lg:px-20 scroll-mt-24">
       <div className="max-w-3xl mx-auto text-center">
         <Reveal>
           <p className="text-accent-light dark:text-accent-dark text-sm font-medium mb-2">
-            ¿Hablamos?
+            {t('contact.kicker')}
           </p>
           <h2 className="text-3xl font-bold text-text-light dark:text-text-dark mb-4">
-            Trabajemos juntos
+            {t('contact.title')}
           </h2>
           <p className="text-text-secondary-light dark:text-text-secondary-dark mb-10">
-            Elegí qué necesitás y te escribo directo por WhatsApp.
+            {t('contact.intro')}
           </p>
         </Reveal>
 

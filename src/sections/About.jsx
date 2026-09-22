@@ -4,26 +4,26 @@ import { aboutData } from '../data/about';
 import Reveal from '../components/Reveal';
 import TechBubble from '../components/TechBubble';
 import SectionTitle from '../components/SectionTitle';
+import { useLanguage } from '../i18n/useLanguage';
 
 export default function About() {
+  const { lang, t } = useLanguage();
+  const data = aboutData[lang];
   const [active, setActive] = useState('formacion');
-  const categories = Object.keys(aboutData);
+  const categories = Object.keys(data);
 
   return (
     <section id="about" className="py-24 px-6 sm:px-10 lg:px-20 scroll-mt-24">
       <div className="max-w-5xl mx-auto">
         <Reveal>
           <p className="text-accent-light dark:text-accent-dark text-sm font-medium mb-2 text-center">
-            Conóceme
+            {t('about.kicker')}
           </p>
           <div className="mb-4">
-            <SectionTitle>Sobre mí</SectionTitle>
+            <SectionTitle>{t('about.title')}</SectionTitle>
           </div>
           <p className="text-text-secondary-light dark:text-text-secondary-dark text-center max-w-2xl mx-auto mb-12">
-            Soy Ignacio Martín, tengo 22 años. Soy estudiante avanzado de Analista Programador en la UNJu
-            y desarrollador Full-Stack. Me apasiona construir cosas que
-            funcionen bien y se vean mejor — desde el backend hasta el último
-            detalle de una animación.
+            {t('about.intro')}
           </p>
         </Reveal>
 
@@ -52,7 +52,7 @@ export default function About() {
                     className="absolute inset-0 rounded-full bg-accent-light dark:bg-accent-dark"
                   />
                 )}
-                <span className="relative z-10">{aboutData[key].label}</span>
+                <span className="relative z-10">{data[key].label}</span>
               </motion.button>
             ))}
           </div>
@@ -77,15 +77,15 @@ export default function About() {
             <span className="absolute top-0 left-0 w-6 h-6 border-t border-l border-accent-light dark:border-accent-dark rounded-tl-2xl" />
             <span className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-accent-light dark:border-accent-dark rounded-br-2xl" />
 
-            {aboutData[active].type === 'bubbles' ? (
+            {data[active].type === 'bubbles' ? (
               <div className="flex flex-wrap justify-center gap-6">
-                {aboutData[active].items.map((item) => (
+                {data[active].items.map((item) => (
                   <TechBubble key={item.title} icon={item.icon} title={item.title} />
                 ))}
               </div>
             ) : (
               <ul className="space-y-5">
-                {aboutData[active].items.map((item, i) => (
+                {data[active].items.map((item, i) => (
                   <li key={i} className="flex flex-col gap-1">
                     {item.url ? (
                       <a

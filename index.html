@@ -9,8 +9,21 @@
       name="description"
       content="Portfolio de Ignacio Martín, Full-Stack Developer y AI Agent Orchestration. Desarrollo web con Angular, Node y React, y aplicaciones móviles con React Native."
     />
-    <meta name="theme-color" content="#0B0F14" />
-    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" id="theme-color-meta" content="#0B0F14" />
+    <meta name="color-scheme" id="color-scheme-meta" content="light dark" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('portfolio-theme');
+          var dark =
+            stored === 'dark' ||
+            (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.classList.toggle('dark', dark);
+          var meta = document.getElementById('theme-color-meta');
+          if (meta) meta.setAttribute('content', dark ? '#0B0F14' : '#FAFAF9');
+        } catch (e) {}
+      })();
+    </script>
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Ignacio Martín - Full-Stack Developer" />

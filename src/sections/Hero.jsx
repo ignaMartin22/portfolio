@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { SiAngular, SiNodedotjs, SiReact } from 'react-icons/si';
 import CvButton from '../components/CvButton';
+import { useLanguage } from '../i18n/useLanguage';
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -30,6 +31,8 @@ function Corner({ className }) {
 }
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section
       id="hero"
@@ -80,7 +83,7 @@ export default function Hero() {
                     <span className="absolute inline-flex w-full h-full rounded-full bg-accent-light/60 dark:bg-accent-dark/60 animate-ping" />
                     <span className="relative inline-flex w-2 h-2 rounded-full bg-accent-light dark:bg-accent-dark" />
                   </span>
-                  Disponible
+                  {t('hero.available')}
                 </span>
                 <span className="text-[10px] font-mono tracking-[0.2em] text-text-secondary-light dark:text-text-secondary-dark">
                   ING&nbsp;·&nbsp;DEV
@@ -120,7 +123,7 @@ export default function Hero() {
                   -23.3333°S · -65.3000°W
                 </div>
                 <div className="absolute bottom-3 right-3 z-10 px-2.5 py-1 rounded-md bg-bg-light/50 dark:bg-bg-dark/60 backdrop-blur-md border border-white/20 dark:border-white/10 text-[10px] font-mono text-accent-light dark:text-accent-dark">
-                  Jujuy, AR
+                  {t('hero.location')}
                 </div>
               </div>
 
@@ -176,7 +179,7 @@ export default function Hero() {
             variants={item}
             className="text-accent-light dark:text-accent-dark font-medium mb-2"
           >
-            Hola! soy
+            {t('hero.hello')}
           </motion.p>
           <motion.h1
             variants={item}
@@ -188,13 +191,13 @@ export default function Hero() {
             variants={item}
             className="text-lg text-text-secondary-light dark:text-text-secondary-dark mb-2"
           >
-            Full-Stack Developer —  AI Agent Orchestration         </motion.p>
+            {t('hero.role')}
+          </motion.p>
           <motion.p
             variants={item}
             className="text-sm text-text-secondary-light dark:text-text-secondary-dark max-w-md mx-auto md:mx-0"
           >
-            Construyo sistemas eficientes y escalables, enfocados en resolver problemas reales, optimizar recursos y convertir ideas en software que genera valor.
- 
+            {t('hero.pitch')}
           </motion.p>
           <motion.div variants={item}>
             <CvButton />
@@ -210,7 +213,7 @@ export default function Hero() {
         className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-3 text-text-secondary-light dark:text-text-secondary-dark"
         aria-hidden
       >
-        <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+        <span className="text-[10px] uppercase tracking-[0.3em]">{t('hero.scroll')}</span>
         <div className="w-px h-10 overflow-hidden bg-text-secondary-light/20 dark:bg-text-secondary-dark/20">
           <motion.span
             className="block w-full h-3 bg-accent-light dark:bg-accent-dark"

@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi2';
+import { useLanguage } from '../i18n/useLanguage';
 
 const INTERVAL_MS = 4500;
 
@@ -20,6 +21,7 @@ const slideVariants = {
 };
 
 export default function ProjectCarousel({ images = [], alt }) {
+  const { t } = useLanguage();
   const slides = images.filter(Boolean);
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -122,7 +124,7 @@ export default function ProjectCarousel({ images = [], alt }) {
         <>
           <button
             type="button"
-            aria-label="Imagen anterior"
+            aria-label={t('carousel.prev')}
             onClick={() => step(-1)}
             className="
               absolute left-3 top-1/2 -translate-y-1/2 z-10
@@ -142,7 +144,7 @@ export default function ProjectCarousel({ images = [], alt }) {
           </button>
           <button
             type="button"
-            aria-label="Imagen siguiente"
+            aria-label={t('carousel.next')}
             onClick={() => step(1)}
             className="
               absolute right-3 top-1/2 -translate-y-1/2 z-10
@@ -166,7 +168,7 @@ export default function ProjectCarousel({ images = [], alt }) {
               <button
                 key={src}
                 type="button"
-                aria-label={`Ir a la imagen ${i + 1}`}
+                aria-label={`${t('carousel.goTo')} ${i + 1}`}
                 aria-current={i === current}
                 onClick={() => goTo(i, i > current ? 1 : -1)}
                 className={`

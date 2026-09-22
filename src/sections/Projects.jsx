@@ -4,18 +4,23 @@ import { proyectos } from '../data/proyectos';
 import ProjectRow from '../components/ProjectRow';
 import Reveal from '../components/Reveal';
 import SectionTitle from '../components/SectionTitle';
+import { useLanguage } from '../i18n/useLanguage';
+
 export default function Projects() {
+  const { lang, t } = useLanguage();
+  const items = proyectos[lang];
+
   return (
 <section id="projects" className="py-24 px-6 sm:px-10 lg:px-20 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
         <Reveal>
           <div className="mb-20 pb-4">
-            <SectionTitle>Proyectos</SectionTitle>
+            <SectionTitle>{t('projects.title')}</SectionTitle>
           </div>
         </Reveal>
 
         <div className="space-y-16 md:space-y-24">
-          {proyectos.map((project, i) => (
+          {items.map((project, i) => (
             <Reveal key={project.name} delay={0.1}>
               <ProjectRow project={project} reverse={i % 2 !== 0} index={i} />
             </Reveal>
@@ -59,14 +64,13 @@ export default function Projects() {
 
                 <div>
                   <p className="text-accent-light dark:text-accent-dark text-xs uppercase tracking-[0.28em] font-medium mb-2">
-                    Próximamente
+                    {t('projects.soon.kicker')}
                   </p>
                   <h3 className="text-xl font-bold text-text-light dark:text-text-dark">
-                    Más proyectos en construcción
+                    {t('projects.soon.title')}
                   </h3>
                   <p className="text-text-secondary-light dark:text-text-secondary-dark text-sm mt-2 max-w-md mx-auto">
-                    Estoy desarrollando nuevas ideas. Este espacio se va a ir
-                    actualizando — volvé pronto.
+                    {t('projects.soon.text')}
                   </p>
                 </div>
               </div>

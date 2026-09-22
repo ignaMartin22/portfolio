@@ -3,24 +3,26 @@ import { motion, AnimatePresence } from 'motion/react';
 import { experiencias } from '../data/experiencia';
 import Reveal from '../components/Reveal';
 import SectionTitle from '../components/SectionTitle';
+import { useLanguage } from '../i18n/useLanguage';
 
 export default function Experience() {
-  const [activeId, setActiveId] = useState(experiencias[0].id);
-  const active = experiencias.find((e) => e.id === activeId);
+  const { lang, t } = useLanguage();
+  const items = experiencias[lang];
+  const [activeId, setActiveId] = useState(items[0].id);
+  const active = items.find((e) => e.id === activeId);
 
   return (
     <section id="experience" className="py-24 px-6 sm:px-10 lg:px-20 scroll-mt-24">
       <div className="max-w-5xl mx-auto">
         <Reveal>
           <p className="text-accent-light dark:text-accent-dark text-sm font-medium mb-2 text-center">
-            Trayectoria
+            {t('experience.kicker')}
           </p>
           <div className="mb-4">
-            <SectionTitle>Experiencia</SectionTitle>
+            <SectionTitle>{t('experience.title')}</SectionTitle>
           </div>
           <p className="text-text-secondary-light dark:text-text-secondary-dark text-center max-w-xl mx-auto mb-12">
-            De la idea a producción: construyendo proyectos con mentalidad de
-            producto real.
+            {t('experience.intro')}
           </p>
         </Reveal>
 
@@ -28,7 +30,7 @@ export default function Experience() {
           <div className="grid md:grid-cols-[220px_1fr] gap-6">
             {/* Lista lateral */}
             <div className="flex flex-col gap-2">
-              {experiencias.map((exp) => {
+              {items.map((exp) => {
                   const isActive = activeId === exp.id;
                   return (
                 <motion.button

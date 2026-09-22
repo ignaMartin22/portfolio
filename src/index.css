@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 @theme {
   --color-bg-light: #FAFAF9;
   --color-surface-light: #FFFFFF;
@@ -31,10 +32,8 @@ body {
   border-radius: 4px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :focus-visible {
-    outline-color: var(--color-accent-dark);
-  }
+.dark :focus-visible {
+  outline-color: var(--color-accent-dark);
 }
 
 @keyframes marquee {
@@ -64,8 +63,6 @@ body {
   background-size: 28px 28px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .tech-grid {
-    --grid-line: color-mix(in srgb, var(--color-accent-dark) 12%, transparent);
-  }
+.dark .tech-grid {
+  --grid-line: color-mix(in srgb, var(--color-accent-dark) 12%, transparent);
 }

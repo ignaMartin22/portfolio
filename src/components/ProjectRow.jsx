@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { HiArrowUpRight } from 'react-icons/hi2';
+import { useLanguage } from '../i18n/useLanguage';
 import ProjectCarousel from './ProjectCarousel';
+import CaseStudyModal from './CaseStudyModal';
 
 function ProjectTech({ tech = [] }) {
   if (!tech.length) return null;
@@ -73,7 +76,7 @@ function ProjectCover({ project }) {
           </div>
         </div>
         <p className="text-sm text-text-secondary-light dark:text-text-secondary-dark">
-          App móvil · Repositorio privado
+          {project.coverNote}
         </p>
       </div>
     </div>
@@ -81,6 +84,8 @@ function ProjectCover({ project }) {
 }
 
 export default function ProjectRow({ project, reverse = false, index = 0 }) {
+  const [caseOpen, setCaseOpen] = useState(false);
+  const { t } = useLanguage();
   const hasImages = Array.isArray(project.images) && project.images.some(Boolean);
   const hasLink = project.link && project.link !== '#';
 
@@ -123,37 +128,86 @@ export default function ProjectRow({ project, reverse = false, index = 0 }) {
 
         <ProjectTech tech={project.tech} />
 
-        <div className="mt-8">
-          {hasLink ? (
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
+        {project.caseStudy && (
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            {hasLink && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  group/link inline-flex items-center gap-2 px-6 py-3 rounded-full
+                  bg-accent-light dark:bg-accent-dark
+                  text-white dark:text-bg-dark font-medium text-sm
+                  shadow-lg shadow-accent-light/20 dark:shadow-accent-dark/20
+                  hover:-translate-y-0.5 hover:shadow-xl
+                  hover:shadow-accent-light/30 dark:hover:shadow-accent-dark/30
+                  active:translate-y-0 active:scale-95
+                  transition-all duration-300
+                "
+              >
+                {t('projects.view')}
+                <HiArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+              </a>
+            )}
+
+            <button
+              type="button"
+              onClick={() => setCaseOpen(true)}
               className="
-                group/link inline-flex items-center gap-2 px-6 py-3 rounded-full
-                bg-accent-light dark:bg-accent-dark
-                text-white dark:text-bg-dark font-medium text-sm
-                shadow-lg shadow-accent-light/20 dark:shadow-accent-dark/20
-                hover:-translate-y-0.5 hover:shadow-xl
-                hover:shadow-accent-light/30 dark:hover:shadow-accent-dark/30
-                active:translate-y-0 active:scale-95
+                group/case inline-flex items-center gap-2 px-6 py-3 rounded-full
+                border border-text-secondary-light/25 dark:border-text-secondary-dark/25
+                text-text-light dark:text-text-dark font-medium text-sm
+                hover:border-accent-light dark:hover:border-accent-dark
+                hover:text-accent-light dark:hover:text-accent-dark
+                active:scale-95
                 transition-all duration-300
               "
             >
-              Ver proyecto
-              <HiArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
-            </a>
-          ) : (
-            <span className="inline-flex items-center gap-2 text-sm text-text-secondary-light dark:text-text-secondary-dark">
-              <span className="relative flex w-2 h-2">
-                <span className="absolute inline-flex w-full h-full rounded-full bg-accent-light/60 dark:bg-accent-dark/60 animate-ping" />
-                <span className="relative inline-flex w-2 h-2 rounded-full bg-accent-light dark:bg-accent-dark" />
+              {t('projects.caseStudy')}
+            </button>
+          </div>
+        )}
+
+        {!project.caseStudy && (
+          <div className="mt-8">
+            {hasLink ? (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  group/link inline-flex items-center gap-2 px-6 py-3 rounded-full
+                  bg-accent-light dark:bg-accent-dark
+                  text-white dark:text-bg-dark font-medium text-sm
+                  shadow-lg shadow-accent-light/20 dark:shadow-accent-dark/20
+                  hover:-translate-y-0.5 hover:shadow-xl
+                  hover:shadow-accent-light/30 dark:hover:shadow-accent-dark/30
+                  active:translate-y-0 active:scale-95
+                  transition-all duration-300
+                "
+              >
+                {t('projects.view')}
+                <HiArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+              </a>
+            ) : (
+              <span className="inline-flex items-center gap-2 text-sm text-text-secondary-light dark:text-text-secondary-dark">
+                <span className="relative flex w-2 h-2">
+                  <span className="absolute inline-flex w-full h-full rounded-full bg-accent-light/60 dark:bg-accent-dark/60 animate-ping" />
+                  <span className="relative inline-flex w-2 h-2 rounded-full bg-accent-light dark:bg-accent-dark" />
+                </span>
+                {t('projects.development')}
               </span>
-              En desarrollo
-            </span>
-          )}
-        </div>
+            )}
+          </div>
+        )}
       </div>
+
+      <CaseStudyModal
+        project={project}
+        isOpen={caseOpen}
+        onClose={() => setCaseOpen(false)}
+      />
     </div>
   );
 }

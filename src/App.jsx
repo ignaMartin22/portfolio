@@ -1,4 +1,5 @@
 import { MotionConfig } from 'motion/react'
+import LanguageProvider from './i18n/LanguageProvider'
 import Hero from './sections/Hero'
 import Navbar from './components/Navbar'
 import SpideyScrollCompanion from './components/SpideyScrollCompanion'
@@ -10,27 +11,38 @@ import Experience from './sections/Experience'
 import SectionDivider from './components/SectionDivider'
 import ScrollProgress from './components/ScrollProgress'
 import TechMarquee from './components/TechMarquee'
+import Services from './sections/Services'
+import Stats from './sections/Stats'
+import Testimonials from './sections/Testimonials'
 
 function App() {
   return (
     <MotionConfig reducedMotion="user">
-      <ScrollProgress />
-      <WebPattern />
-      <Navbar />
-      <SectionDivider />
-      <SpideyScrollCompanion />
-      <main>
-        <Hero />
+      <LanguageProvider>
+        <ScrollProgress />
+        <WebPattern />
+        <Navbar />
         <SectionDivider />
-        <TechMarquee />
-        <About />
-        <SectionDivider />
-        <Experience />
-        <SectionDivider />
-        <Projects />
-        <SectionDivider />
-        <Contact />
-      </main>
+        <SpideyScrollCompanion />
+        <main>
+          <Hero />
+          <SectionDivider />
+          <TechMarquee />
+          <About />
+          <SectionDivider />
+          <Stats />
+          <SectionDivider />
+          <Services />
+          <SectionDivider />
+          <Experience />
+          <SectionDivider />
+          <Projects />
+          <SectionDivider />
+          <Testimonials />
+          <SectionDivider />
+          <Contact />
+        </main>
+      </LanguageProvider>
     </MotionConfig>
   );
 }

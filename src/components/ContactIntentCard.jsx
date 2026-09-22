@@ -1,9 +1,13 @@
 import { motion } from 'motion/react';
 import { contactIntents } from '../data/contactIntents';
+import { useLanguage } from '../i18n/useLanguage';
 
 const WHATSAPP_NUMBER = '543884157277';
 
 export default function ContactIntentCard() {
+  const { lang, t } = useLanguage();
+  const intents = contactIntents[lang];
+
   const handleIntent = (message) => {
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank', 'noopener,noreferrer');
@@ -34,26 +38,26 @@ export default function ContactIntentCard() {
             </p>
             <p className="text-accent-light dark:text-accent-dark text-xs flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-accent-light dark:bg-accent-dark" />
-              Abierto a oportunidades
+              {t('card.openTo')}
             </p>
           </div>
         </div>
         <div className="text-right">
           <p className="text-text-secondary-light dark:text-text-secondary-dark text-xs uppercase tracking-wide">
-            Tiempo de respuesta
+            {t('card.replyTime')}
           </p>
           <p className="text-text-light dark:text-text-dark text-sm font-medium">
-            &lt; 1 hora
+            {t('card.withinHour')}
           </p>
         </div>
       </div>
 
       <p className="text-text-secondary-light dark:text-text-secondary-dark text-sm mb-4">
-        ¿En qué puedo ayudarte?
+        {t('card.ask')}
       </p>
 
       <div className="grid sm:grid-cols-2 gap-3">
-        {contactIntents.map((intent) => (
+        {intents.map((intent) => (
           <button
             key={intent.label}
             onClick={() => handleIntent(intent.message)}

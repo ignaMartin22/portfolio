@@ -1,18 +1,22 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/react';
+import { useLanguage } from '../i18n/useLanguage';
+import ThemeToggle from './ThemeToggle';
+import LanguageToggle from './LanguageToggle';
 
 const links = [
-  { label: 'Inicio', href: '#hero' },
-  { label: 'Sobre mí', href: '#about' },
-  { label: 'Experiencia', href: '#experience' },
-  { label: 'Proyectos', href: '#projects' },
-  { label: 'Contacto', href: '#contact' },
+  { key: 'home', href: '#hero' },
+  { key: 'about', href: '#about' },
+  { key: 'experience', href: '#experience' },
+  { key: 'projects', href: '#projects' },
+  { key: 'contact', href: '#contact' },
 ];
 
 export default function Navbar() {
   const [active, setActive] = useState('#hero');
   const [hidden, setHidden] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLanguage();
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
@@ -91,11 +95,16 @@ export default function Navbar() {
                       className="absolute inset-0 rounded-full bg-white/20 dark:bg-white/10"
                     />
                   )}
-                  <span className="relative z-10">{link.label}</span>
+                  <span className="relative z-10">{t(`nav.${link.key}`)}</span>
                 </a>
               );
             })}
           </div>
+
+          {/* Divisor + toggles (tema e idioma) */}
+          <span aria-hidden className="hidden md:block w-px h-6 mx-1 bg-white/15 dark:bg-white/10" />
+          <ThemeToggle labelDark={t('theme.toDark')} labelLight={t('theme.toLight')} />
+          <LanguageToggle />
 
           {/* Botón hamburguesa móvil */}
           <button
@@ -173,7 +182,7 @@ export default function Navbar() {
                           className="absolute inset-0 rounded-2xl bg-accent-light dark:bg-accent-dark"
                         />
                       )}
-                      <span className="relative z-10">{link.label}</span>
+                      <span className="relative z-10">{t(`nav.${link.key}`)}</span>
                       <span className="relative z-10 text-xs font-mono text-accent-light dark:text-accent-dark opacity-70">
                         {String(i + 1).padStart(2, '0')}
                       </span>

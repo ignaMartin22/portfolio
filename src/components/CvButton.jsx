@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
+import { useLanguage } from '../i18n/useLanguage';
 
 const cvOptions = [
   {
-    language: 'Español',
+    code: 'ES',
     href: '/IGNACIO_MARTIN_CV_ESP.pdf',
     download: 'Ignacio_Martin_CV_ES.pdf',
   },
   {
-    language: 'English',
+    code: 'EN',
     href: '/IGNACIO_MARTIN_CV_ENG.pdf',
     download: 'Ignacio_Martin_CV_EN.pdf',
   },
@@ -16,6 +17,7 @@ const cvOptions = [
 
 export default function CvButton() {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <>
@@ -41,7 +43,7 @@ export default function CvButton() {
           animate={{ rotate: [0, 12, -12, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
         />
-        Curriculum Vitae
+        {t('cv.cta')}
       </button>
 
       <AnimatePresence>
@@ -70,12 +72,12 @@ export default function CvButton() {
                       Download
                     </p>
                     <h3 className="text-xl font-semibold text-text-light dark:text-text-dark">
-                      Elegí tu CV
+                      {t('cv.downloadLabel')}
                     </h3>
                   </div>
                   <button
                     type="button"
-                    aria-label="Cerrar modal"
+                    aria-label={t('projects.close')}
                     onClick={() => setIsOpen(false)}
                     className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 dark:border-white/10 bg-white/5 dark:bg-white/[0.03] text-text-secondary-light dark:text-text-secondary-dark transition hover:text-text-light dark:hover:text-text-dark"
                   >
@@ -84,9 +86,9 @@ export default function CvButton() {
                 </div>
 
                 <div className="space-y-3">
-                  {cvOptions.map(({ language, href, download }) => (
+                  {cvOptions.map(({ code, href, download }) => (
                     <a
-                      key={language}
+                      key={code}
                       href={href}
                       download={download}
                       target="_blank"
@@ -96,14 +98,14 @@ export default function CvButton() {
                     >
                       <div className="flex items-center gap-3">
                         <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent-light/10 dark:bg-accent-dark/10 text-accent-light dark:text-accent-dark text-sm font-semibold">
-                          {language === 'Español' ? 'ES' : 'EN'}
+                          {code}
                         </span>
                         <div>
                           <p className="text-sm font-medium text-text-light dark:text-text-dark">
-                            Curriculum Vitae
+                            {t('cv.cta')}
                           </p>
                           <p className="text-xs text-text-secondary-light dark:text-text-secondary-dark">
-                            {language}
+                            {code === 'ES' ? t('cv.es') : t('cv.en')}
                           </p>
                         </div>
                       </div>

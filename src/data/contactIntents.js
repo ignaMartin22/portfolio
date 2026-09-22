@@ -1,4 +1,4 @@
-export const contactIntents = [
+const es = [
   {
     label: 'Práctica profesional',
     message: 'Hola Nacho! Te escribo por una práctica profesional que podría interesarte.',
@@ -25,3 +25,33 @@ export const contactIntents = [
     full: true,
   },
 ];
+
+const en = [
+  {
+    label: 'Professional internship',
+    message: 'Hi Nacho! I\'m reaching out about a professional internship.',
+  },
+  {
+    label: 'Freelance proposal',
+    message: 'Hi Nacho! I have a freelance project to propose to you.',
+  },
+  {
+    label: 'Full-Stack role',
+    message: 'Hi Nacho! We\'re looking for a Full-Stack developer — are you available?',
+  },
+  {
+    label: 'Exploratory interview',
+    message: 'Hi Nacho! I\'d like to schedule an exploratory interview.',
+  },
+  {
+    label: 'Technical question',
+    message: 'Hi Nacho! I have a technical question about one of your projects.',
+  },
+  {
+    label: 'Just saying hi',
+    message: 'Hi Nacho! I saw your portfolio, great work!',
+    full: true,
+  },
+];
+
+export const contactIntents = { es, en };
