@@ -14,6 +14,7 @@ import TechMarquee from './components/TechMarquee'
 import Services from './sections/Services'
 import Stats from './sections/Stats'
 import Testimonials from './sections/Testimonials'
+import Community from './sections/Community'
 
 function App() {
   return (
@@ -37,6 +38,8 @@ function App() {
           <Experience />
           <SectionDivider />
           <Projects />
+          <SectionDivider />
+          <Community />
           <SectionDivider />
           <Testimonials />
           <SectionDivider />
