@@ -1,9 +1,52 @@
 import {
-  SiAngular, SiClaude, SiCloudinary, SiExpo, SiExpress, SiJsonwebtokens, SiMongodb,
-  SiNodedotjs, SiReact, SiSupabase, SiTailwindcss, SiTypescript, SiVercel,
+  SiAngular, SiCloudinary, SiExpo, SiExpress, SiJsonwebtokens, SiMongodb,
+  SiNodedotjs, SiReact, SiRust, SiSolana, SiSolidity, SiSupabase, SiTailwindcss, SiTypescript, SiVercel,
 } from 'react-icons/si';
 
+const astroamImages = [
+  '/astroam-img1.jpg',
+  '/astroam-img2.jpg',
+  '/astroam-img3.jpg',
+];
+
+const astroamTech = [
+  { name: 'React', icon: SiReact },
+  { name: 'TypeScript', icon: SiTypescript },
+  { name: 'Tailwind', icon: SiTailwindcss },
+  { name: 'Node.js', icon: SiNodedotjs },
+  { name: 'Solana', icon: SiSolana },
+  { name: 'Rust', icon: SiRust },
+  { name: 'Solidity', icon: SiSolidity },
+];
+
 const es = [
+  {
+    name: 'AstroAm',
+    tag: 'Web3 · Solana + Monad · Pagos en USDC · eSIM',
+    highlight: 'Finalista · Hackatón Superteam Argentina (Solana)',
+    description:
+      'Datos móviles en cualquier país, pagados por MB en USDC. El viajero deposita USDC en un escrow on-chain e instala una eSIM; mientras navega, la app firma vales acumulativos sin una transacción por megabyte. Al terminar el viaje, una sola transacción cobra lo usado y devuelve el resto a la wallet. Lo desarrollamos en equipo sobre dos redes: Solana, para la hackatón de Superteam Argentina (comunidad del ecosistema Solana), donde llegamos a la final, y Monad, para Monad Metropolis 2026.',
+    images: astroamImages,
+    link: 'https://github.com/FrancoDuran23/astroam-solana',
+    linkLabel: 'Repo Solana',
+    extraLinks: [{ label: 'Repo Monad', url: 'https://github.com/FrancoDuran23/astroam-monad' }],
+    coverNote: 'Web3 · Hackatón',
+    tech: astroamTech,
+    caseStudy: {
+      problem:
+        'Viajar al exterior implica pagar roaming caro o comprar paquetes de datos cerrados: pagás por gigas que no usás, necesitás tarjeta y lo que sobra se pierde.',
+      solution:
+        'Un canal de pago on-chain implementado en dos redes: el viajero deposita USDC en un escrow (no a nosotros), la operadora mide el consumo y la app firma vales acumulativos con una clave de sesión, sin popups de wallet ni transacciones por MB. Al cerrar el viaje, el escrow paga lo consumido y reembolsa el saldo. La app y el backend son los mismos; solo cambia la red de pago.',
+      highlights: [
+        'Solana: programa escrow nativo en Rust desplegado en devnet, con USDC de Circle, vales firmados con ed25519 y wallets Phantom / Solflare.',
+        'Monad: contrato AstroAmEscrow en Solidity con vales EIP-712, tests en Foundry y desplegado en Monad testnet con MetaMask.',
+        'Backend en Node/TypeScript con un PaymentRail agnóstico de la cadena, medición de consumo y política de corte cuando el depósito no alcanza.',
+        'Frontend móvil en React + Vite + Tailwind con temática espacial, fondo de estrellas animado en Canvas y flujo completo: destino, depósito, eSIM, viaje y liquidación.',
+      ],
+      result:
+        'La versión en Solana llegó a la final de la hackatón de Superteam Argentina. En ambas redes el flujo funciona de punta a punta, con la tarifa por país visible de entrada y el reembolso automático de lo que no se usa.',
+    },
+  },
   {
     name: 'PraxisApp',
     tag: 'Gestión de expedientes · App móvil · SaaS',
@@ -72,38 +115,36 @@ const es = [
         'El cliente gestiona su tienda de forma autónoma y recibe pedidos ordenados, listos para responder.',
     },
   },
-  {
-    name: 'React + Claude Agent',
-    tag: 'AI Agent · Orquestación de IA',
-    description:
-      'Agente de IA que orquesta la construcción de interfaces React: interpreta el objetivo, planifica la arquitectura, genera componentes y refina el resultado. Un pipeline donde Claude coordina todo el proceso de desarrollo frontend.',
-    images: [],
-    link: '#',
-    coverNote: 'IA · Pipeline de generación',
-    tech: [
-      { name: 'Claude', icon: SiClaude },
-      { name: 'React', icon: SiReact },
-      { name: 'TypeScript', icon: SiTypescript },
-      { name: 'Tailwind', icon: SiTailwindcss },
-      { name: 'Vercel', icon: SiVercel },
-    ],
-    caseStudy: {
-      problem:
-        'Diseñar y construir interfaces React sólidas lleva horas de iteración: estructura de componentes, animaciones y consistencia visual se revisan una y otra vez. ¿Podía una IA orquestar ese proceso completo?',
-      solution:
-        'Agente que recibe el objetivo del usuario, divide la tarea en pasos (estructura, estilos, animaciones, revisión) y ejecuta cada paso guiado por Claude, entregando una UI funcional lista para desplegar.',
-      highlights: [
-        'Orquestación del pipeline: planificación → generación → refinamiento.',
-        'Guías de UI/UX aplicadas automáticamente para mantener consistencia visual.',
-        'Salida lista para Vite: componente o proyecto completo desde una sola descripción.',
-      ],
-      result:
-        'El tiempo de prototipado se reduce de horas a minutos: una interfaz completa y de calidad a partir de una consigna.',
-    },
-  },
 ];
 
 const en = [
+  {
+    name: 'AstroAm',
+    tag: 'Web3 · Solana + Monad · USDC payments · eSIM',
+    highlight: 'Finalist · Superteam Argentina Hackathon (Solana)',
+    description:
+      'Mobile data in any country, paid per MB in USDC. The traveler deposits USDC into an on-chain escrow and installs one eSIM; while browsing, the app signs cumulative vouchers with no transaction per megabyte. When the trip ends, a single transaction pays for what was used and returns the rest to the wallet. We built it as a team on two networks: Solana, for the Superteam Argentina hackathon (a Solana ecosystem community), where we reached the final, and Monad, for Monad Metropolis 2026.',
+    images: astroamImages,
+    link: 'https://github.com/FrancoDuran23/astroam-solana',
+    linkLabel: 'Repo Solana',
+    extraLinks: [{ label: 'Repo Monad', url: 'https://github.com/FrancoDuran23/astroam-monad' }],
+    coverNote: 'Web3 · Hackathon',
+    tech: astroamTech,
+    caseStudy: {
+      problem:
+        'Traveling abroad means paying expensive roaming or buying fixed data packages: you pay for gigabytes you never use, you need a card, and whatever is left is lost.',
+      solution:
+        'An on-chain payment channel implemented on two networks: the traveler deposits USDC into an escrow (not to us), the carrier meters usage and the app signs cumulative vouchers with a session key, with no wallet popups and no transaction per MB. When the trip closes, the escrow pays for what was used and refunds the rest. The app and backend are shared; only the payment network changes.',
+      highlights: [
+        'Solana: native escrow program in Rust deployed on devnet, with Circle USDC, ed25519-signed vouchers and Phantom / Solflare wallets.',
+        'Monad: AstroAmEscrow contract in Solidity with EIP-712 vouchers, Foundry tests, deployed on Monad testnet with MetaMask.',
+        'Node/TypeScript backend with a chain-agnostic PaymentRail, usage metering and a cutoff policy when the deposit runs out.',
+        'Mobile-first React + Vite + Tailwind frontend with a space theme, an animated Canvas starfield and the full flow: destination, deposit, eSIM, trip and settlement.',
+      ],
+      result:
+        'The Solana version reached the final of the Superteam Argentina hackathon. On both networks the flow works end to end, with each country\'s rate shown up front and an automatic refund of whatever goes unused.',
+    },
+  },
   {
     name: 'PraxisApp',
     tag: 'Case management · Mobile app · SaaS',
@@ -170,35 +211,6 @@ const en = [
       ],
       result:
         'The client runs their store autonomously and receives tidy, ready-to-answer orders.',
-    },
-  },
-  {
-    name: 'React + Claude Agent',
-    tag: 'AI Agent · Orchestration',
-    description:
-      'An AI agent that orchestrates the building of React interfaces: it interprets the goal, plans the architecture, generates components and refines the result. A pipeline where Claude coordinates the whole frontend development process.',
-    images: [],
-    link: '#',
-    coverNote: 'AI · Generation pipeline',
-    tech: [
-      { name: 'Claude', icon: SiClaude },
-      { name: 'React', icon: SiReact },
-      { name: 'TypeScript', icon: SiTypescript },
-      { name: 'Tailwind', icon: SiTailwindcss },
-      { name: 'Vercel', icon: SiVercel },
-    ],
-    caseStudy: {
-      problem:
-        'Designing and building solid React interfaces takes hours of iteration: component structure, animations and visual consistency get reviewed over and over. Could an AI orchestrate that whole process?',
-      solution:
-        'An agent that takes the user\'s goal, breaks the task into steps (structure, styles, animations, review) and runs each step guided by Claude, delivering a functional UI ready to deploy.',
-      highlights: [
-        'Pipeline orchestration: planning → generation → refinement.',
-        'UI/UX guidelines applied automatically to keep visual consistency.',
-        'Output ready for Vite: a component or a whole project from a single prompt.',
-      ],
-      result:
-        'Prototyping time drops from hours to minutes: a complete, quality interface from one description.',
     },
   },
 ];

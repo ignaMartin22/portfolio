@@ -4,6 +4,7 @@ import { HiArrowUpRight } from 'react-icons/hi2';
 import { useLanguage } from '../i18n/useLanguage';
 import ProjectCarousel from './ProjectCarousel';
 import CaseStudyModal from './CaseStudyModal';
+import HighlightBadge from './HighlightBadge';
 
 function ProjectTech({ tech = [] }) {
   if (!tech.length) return null;
@@ -116,6 +117,9 @@ export default function ProjectRow({ project, reverse = false, index = 0 }) {
       </div>
 
       <div>
+        {project.highlight && (
+          <HighlightBadge className="mb-4">{project.highlight}</HighlightBadge>
+        )}
         <p className="text-accent-light dark:text-accent-dark text-sm font-medium mb-2">
           {project.tag}
         </p>
@@ -146,10 +150,30 @@ export default function ProjectRow({ project, reverse = false, index = 0 }) {
                   transition-all duration-300
                 "
               >
-                {t('projects.view')}
+                {project.linkLabel ?? t('projects.view')}
                 <HiArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
               </a>
             )}
+
+            {project.extraLinks?.map(({ label, url }) => (
+              <a
+                key={url}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  group/extra inline-flex items-center gap-2 px-6 py-3 rounded-full
+                  border border-accent-light/50 dark:border-accent-dark/50
+                  text-accent-light dark:text-accent-dark font-medium text-sm
+                  hover:-translate-y-0.5 hover:bg-accent-light/10 dark:hover:bg-accent-dark/10
+                  active:translate-y-0 active:scale-95
+                  transition-all duration-300
+                "
+              >
+                {label}
+                <HiArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/extra:translate-x-0.5 group-hover/extra:-translate-y-0.5" />
+              </a>
+            ))}
 
             <button
               type="button"
