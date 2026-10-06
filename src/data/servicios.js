@@ -1,4 +1,4 @@
-import { TbCode, TbDeviceMobile, TbRobot } from 'react-icons/tb';
+import { TbCode, TbCurrencySolana, TbDeviceMobile, TbRobot } from 'react-icons/tb';
 
 const es = [
   {
@@ -15,6 +15,11 @@ const es = [
     icon: TbRobot,
     title: 'Automatización con IA',
     text: 'Agentes y flujos que eliminan tareas repetitivas: orquestación con modelos de Claude, generación de interfaces y optimización de procesos.',
+  },
+  {
+    icon: TbCurrencySolana,
+    title: 'Pagos Web3',
+    text: 'Pagos en USDC sobre Solana y redes EVM como Monad: contratos escrow, conexión de wallets (MetaMask, Phantom) y firmas off-chain para cobrar por uso sin una transacción por operación.',
   },
 ];
 
@@ -33,6 +38,11 @@ const en = [
     icon: TbRobot,
     title: 'AI automation',
     text: 'Agents and flows that remove repetitive work: Claude model orchestration, interface generation and process optimization.',
+  },
+  {
+    icon: TbCurrencySolana,
+    title: 'Web3 payments',
+    text: 'USDC payments on Solana and EVM networks like Monad: escrow contracts, wallet connection (MetaMask, Phantom) and off-chain signatures to charge per use without a transaction per operation.',
   },
 ];
 

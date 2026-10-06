@@ -23,7 +23,7 @@ export default function Testimonials() {
           </div>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-6 mt-12">
+        <div className={`grid gap-6 mt-12 ${items.length > 1 ? 'md:grid-cols-2' : 'max-w-xl mx-auto'}`}>
           {items.map((testimonial, i) => (
             <motion.blockquote
               key={`${testimonial.name}-${lang}`}
