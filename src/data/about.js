@@ -6,7 +6,17 @@ import {
   SiGit, SiGithub, SiPostman,
   SiClaude,
   SiVllm,
+  SiSolana, SiEthereum, SiSolidity, SiRust, SiCircle,
 } from 'react-icons/si';
+import { TbHammer, TbWallet } from 'react-icons/tb';
+
+const web3Items = [
+  { title: 'Solana', icon: SiSolana },
+  { title: 'EVM / Monad', icon: SiEthereum },
+  { title: 'Foundry', icon: TbHammer },
+  { title: 'MetaMask · Phantom', icon: TbWallet },
+  { title: 'USDC', icon: SiCircle },
+];
 
 const es = {
   formacion: {
@@ -33,6 +43,8 @@ const es = {
       { title: 'TypeScript', icon: SiTypescript },
       { title: 'HTML', icon: SiHtml5 },
       { title: 'CSS', icon: SiCss },
+      { title: 'Solidity', icon: SiSolidity },
+      { title: 'Rust', icon: SiRust },
     ],
   },
   frameworks: {
@@ -71,6 +83,11 @@ const es = {
       { title: 'Claude', icon: SiClaude },
       { title: 'Vllm', icon: SiVllm },
     ],
+  },
+  web3: {
+    label: 'Web3',
+    type: 'bubbles',
+    items: web3Items,
   },
   herramientas: {
     label: 'Herramientas',
@@ -127,6 +144,8 @@ const en = {
       { title: 'TypeScript', icon: SiTypescript },
       { title: 'HTML', icon: SiHtml5 },
       { title: 'CSS', icon: SiCss },
+      { title: 'Solidity', icon: SiSolidity },
+      { title: 'Rust', icon: SiRust },
     ],
   },
   frameworks: {
@@ -165,6 +184,11 @@ const en = {
       { title: 'Claude', icon: SiClaude },
       { title: 'Vllm', icon: SiVllm },
     ],
+  },
+  web3: {
+    label: 'Web3',
+    type: 'bubbles',
+    items: web3Items,
   },
   herramientas: {
     label: 'Tools',
