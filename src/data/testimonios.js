@@ -1,12 +1,5 @@
 const es = [
   {
-    name: 'Estudio Jurídico',
-    role: 'Cliente — PraxisApp',
-    initials: 'EJ',
-    quote:
-      'Nacho entendió el día a día de un estudio y lo transformó en una app clara y práctica. Hoy seguimos cada expediente desde el celular, sin planillas perdidas.',
-  },
-  {
     name: 'Khai Love',
     role: 'Cliente — Tienda online',
     initials: 'KL',
@@ -16,13 +9,6 @@ const es = [
 ];
 
 const en = [
-  {
-    name: 'Law Firm',
-    role: 'Client — PraxisApp',
-    initials: 'LF',
-    quote:
-      'Nacho understood how a law firm actually works and turned it into a clear, practical app. Today we track every case from our phones, no lost spreadsheets.',
-  },
   {
     name: 'Khai Love',
     role: 'Client — Online store',
