@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import { HiXMark } from 'react-icons/hi2';
 import { useLanguage } from '../i18n/useLanguage';
+import HighlightBadge from './HighlightBadge';
 
 function Block({ label, children }) {
   return (
@@ -71,6 +72,9 @@ export default function CaseStudyModal({ project, isOpen, onClose }) {
                 <div className="relative p-6 sm:p-8 max-h-[80vh] overflow-y-auto">
                   <div className="flex items-start justify-between gap-4 mb-6">
                     <div>
+                      {project.highlight && (
+                        <HighlightBadge className="mb-4">{project.highlight}</HighlightBadge>
+                      )}
                       <p className="text-xs uppercase tracking-[0.28em] text-accent-light dark:text-accent-dark mb-2">
                         {project.tag}
                       </p>
