@@ -27,8 +27,8 @@ export default function Community() {
 
         <Reveal delay={0.1}>
           {/* Borde con el degradé de JujuyDev */}
-          <div className={`relative rounded-3xl p-px bg-gradient-to-br ${JD_GRADIENT}`}>
-            <div className="relative rounded-3xl overflow-hidden isolate bg-bg-light dark:bg-bg-dark p-6 sm:p-8 lg:p-10">
+          <div className={`relative p-[2px] bg-gradient-to-br ${JD_GRADIENT} shadow-[6px_6px_0_#c0399c]`}>
+            <div className="relative overflow-hidden isolate bg-bg-light dark:bg-bg-dark p-6 sm:p-8 lg:p-10">
               <motion.div
                 aria-hidden
                 className="absolute -top-28 -right-24 w-80 h-80 rounded-full bg-[#c0399c]/15 blur-[100px] -z-10"
@@ -44,22 +44,26 @@ export default function Community() {
 
               <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
                 {/* Fotos + eventos */}
-                <div className="space-y-6">
-                  <ProjectCarousel images={c.images} alt={c.name} />
+                <div className="space-y-8">
+                  {/* Fotos pegadas sobre papel */}
+                  <div className="relative p-2.5 sm:p-3 -rotate-[1deg] bg-surface-light dark:bg-paper border border-ink/10 dark:border-transparent shadow-[0_18px_40px_rgba(11,11,16,0.25)] dark:shadow-[0_18px_40px_rgba(0,0,0,0.5)]">
+                    <span aria-hidden className="absolute -top-3 right-8 z-20 w-24 h-6 rotate-[4deg] bg-highlight/75" />
+                    <ProjectCarousel images={c.images} alt={c.name} />
+                  </div>
 
                   <div>
-                    <p className="text-xs uppercase tracking-[0.28em] text-text-secondary-light dark:text-text-secondary-dark mb-3">
+                    <p className="font-mono text-xs uppercase tracking-[0.18em] text-text-secondary-light dark:text-text-secondary-dark mb-3">
                       {c.eventsLabel}
                     </p>
-                    <ol className="relative border-l border-text-secondary-light/20 dark:border-text-secondary-dark/20 ml-1.5 space-y-4">
+                    <ol className="relative border-l-2 border-dashed border-text-secondary-light/30 dark:border-text-secondary-dark/30 ml-1.5 space-y-4">
                       {c.events.map((ev) => (
                         <li key={ev.name} className="pl-5 relative">
                           <span
                             aria-hidden
-                            className={`absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-gradient-to-br ${JD_GRADIENT}`}
+                            className={`absolute -left-[7px] top-1.5 w-3 h-3 rotate-45 bg-gradient-to-br ${JD_GRADIENT}`}
                           />
                           <p className="text-sm text-text-light dark:text-text-dark font-medium">
-                            <span className="text-[#c0399c] dark:text-[#e86bb8] mr-2">{ev.date}</span>
+                            <span className="font-mono text-xs text-[#c0399c] dark:text-[#e86bb8] mr-2">{ev.date}</span>
                             {ev.name}
                           </p>
                           <p className="text-xs text-text-secondary-light dark:text-text-secondary-dark mt-0.5">
@@ -76,16 +80,16 @@ export default function Community() {
                   <div className="flex items-center gap-4 mb-5">
                     <img src="/jujuydev-logo.svg" alt="" className="w-16 h-auto shrink-0" />
                     <div>
-                      <h3 className="text-2xl font-bold text-text-light dark:text-text-dark">
+                      <h3 className="font-display uppercase text-4xl md:text-5xl leading-[0.95] text-text-light dark:text-text-dark">
                         {c.name}
                       </h3>
-                      <p className="text-sm text-text-secondary-light dark:text-text-secondary-dark">
+                      <p className="font-mono text-xs text-text-secondary-light dark:text-text-secondary-dark mt-1">
                         {c.tagline}
                       </p>
                     </div>
                   </div>
 
-                  <span className={`inline-flex items-center px-3.5 py-1.5 mb-5 rounded-full text-xs font-semibold tracking-wide text-white bg-gradient-to-r ${JD_GRADIENT} shadow-md shadow-[#c0399c]/25`}>
+                  <span className={`inline-flex items-center px-3 pt-1.5 pb-1 mb-6 -rotate-2 font-display uppercase text-base tracking-wide leading-none text-white bg-gradient-to-r ${JD_GRADIENT} shadow-[3px_3px_0_var(--color-ink)]`}>
                     {c.role}
                   </span>
 
@@ -97,12 +101,12 @@ export default function Community() {
                     {c.stats.map((s) => (
                       <div
                         key={s.label}
-                        className="rounded-xl p-3 text-center border border-text-secondary-light/15 dark:border-text-secondary-dark/15 bg-white/5 dark:bg-white/[0.03]"
+                        className="p-3 text-center border-2 border-text-light/20 dark:border-text-secondary-dark/25 bg-surface-light dark:bg-surface-dark"
                       >
-                        <p className={`text-2xl font-black bg-gradient-to-r ${JD_GRADIENT} bg-clip-text text-transparent`}>
+                        <p className={`font-display text-4xl leading-none bg-gradient-to-r ${JD_GRADIENT} bg-clip-text text-transparent`}>
                           {s.value}
                         </p>
-                        <p className="text-[11px] leading-tight text-text-secondary-light dark:text-text-secondary-dark mt-1">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.08em] leading-tight text-text-secondary-light dark:text-text-secondary-dark mt-2">
                           {s.label}
                         </p>
                       </div>
@@ -118,22 +122,14 @@ export default function Community() {
                     ))}
                   </ul>
 
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-4">
                     {c.links.map(({ label, url, icon: Icon }) => (
                       <a
                         key={url}
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="
-                          group/jd inline-flex items-center gap-2 px-5 py-2.5 rounded-full
-                          text-sm font-medium
-                          border border-text-secondary-light/25 dark:border-text-secondary-dark/25
-                          text-text-light dark:text-text-dark
-                          hover:border-[#c0399c] hover:text-[#c0399c] dark:hover:text-[#e86bb8]
-                          hover:-translate-y-0.5 active:scale-95
-                          transition-all duration-300
-                        "
+                        className="group/jd btn-brand btn-ghost gap-2"
                       >
                         <Icon className="w-4 h-4" />
                         {label}
