@@ -15,7 +15,7 @@ export default function Testimonials() {
     <section id="testimonials" className="py-24 px-6 sm:px-10 lg:px-20 scroll-mt-24">
       <div className="max-w-5xl mx-auto">
         <Reveal>
-          <p className="text-accent-light dark:text-accent-dark text-sm font-medium mb-2 text-center">
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent-light dark:text-accent-dark mb-3 text-center">
             {t('testimonials.kicker')}
           </p>
           <div className="mb-4">
@@ -31,40 +31,36 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.6, delay: i * 0.12, ease: EASE }}
-              whileHover={{ y: -6 }}
+              whileHover={{ y: -6, rotate: 0 }}
+              style={{ rotate: i % 2 === 0 ? -1 : 1 }}
               className="
-                group relative rounded-2xl p-6 sm:p-8
-                bg-white/5 dark:bg-white/[0.03]
-                backdrop-blur-md
-                border border-text-secondary-light/15 dark:border-text-secondary-dark/15
-                hover:border-accent-light/50 dark:hover:border-accent-dark/50
-                transition-colors duration-300
+                group relative p-6 sm:p-8 pt-8 sm:pt-10
+                bg-surface-light dark:bg-paper text-ink
+                border border-ink/10 dark:border-transparent
+                shadow-[0_18px_40px_rgba(11,11,16,0.2)] dark:shadow-[0_18px_40px_rgba(0,0,0,0.5)]
               "
             >
-              <span className="absolute top-0 left-0 w-6 h-6 border-t border-l border-accent-light dark:border-accent-dark rounded-tl-2xl" />
-
-              <motion.div
+              {/* Cinta */}
+              <span
                 aria-hidden
-                className="absolute -top-3 right-6 w-11 h-11 rounded-full flex items-center justify-center border border-accent-light/25 dark:border-accent-dark/25 bg-bg-light dark:bg-bg-dark text-accent-light dark:text-accent-dark"
-                animate={{ y: [0, -4, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
-              >
-                <TbQuote className="w-5 h-5" />
-              </motion.div>
+                className={`absolute -top-3 w-24 h-6 bg-highlight/75 ${i % 2 === 0 ? 'left-8 -rotate-[4deg]' : 'right-8 rotate-[4deg]'}`}
+              />
 
-              <p className="text-text-secondary-light dark:text-text-secondary-dark text-sm leading-relaxed mb-6 min-h-[84px]">
+              <TbQuote aria-hidden className="w-8 h-8 mb-3 text-accent-light" />
+
+              <p className="text-ink/80 leading-relaxed mb-6 min-h-[84px]">
                 “{testimonial.quote}”
               </p>
 
-              <footer className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-full flex items-center justify-center bg-accent-light/15 dark:bg-accent-dark/15 text-accent-light dark:text-accent-dark font-bold text-sm border border-accent-light/30 dark:border-accent-dark/30">
+              <footer className="flex items-center gap-3 pt-4 border-t border-dashed border-ink/25">
+                <div className="w-11 h-11 flex items-center justify-center bg-ink text-paper font-mono font-bold text-sm">
                   {testimonial.initials}
                 </div>
                 <div>
-                  <p className="text-text-light dark:text-text-dark font-medium text-sm">
+                  <p className="font-display uppercase text-lg leading-none tracking-wide">
                     {testimonial.name}
                   </p>
-                  <p className="text-text-secondary-light dark:text-text-secondary-dark text-xs">
+                  <p className="font-mono text-[11px] text-ink/60 mt-1">
                     {testimonial.role}
                   </p>
                 </div>

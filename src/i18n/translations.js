@@ -21,6 +21,7 @@ export const translations = {
         'Construyo sistemas eficientes y escalables, enfocados en resolver problemas reales, optimizar recursos y convertir ideas en software que genera valor.',
       available: 'Disponible',
       location: 'Jujuy, AR',
+      note: '¡ese soy yo!',
       scroll: 'Scroll',
     },
     about: {
@@ -112,6 +113,7 @@ export const translations = {
         'I build efficient, scalable systems focused on solving real problems, optimizing resources, and turning ideas into software that creates value.',
       available: 'Available',
       location: 'Jujuy, AR',
+      note: "that's me!",
       scroll: 'Scroll',
     },
     about: {

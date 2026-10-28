@@ -14,16 +14,13 @@ function ProjectTech({ tech = [] }) {
         <span
           key={name}
           className="
-            inline-flex items-center gap-2 px-3 py-1.5 rounded-full
-            text-xs font-medium cursor-default
-            border border-text-secondary-light/20 dark:border-text-secondary-dark/20
-            bg-white/5 dark:bg-white/[0.03]
-            text-text-secondary-light dark:text-text-secondary-dark
-            hover:border-accent-light dark:hover:border-accent-dark
-            hover:text-accent-light dark:hover:text-accent-dark
-            hover:-translate-y-0.5 hover:shadow-lg
-            hover:shadow-accent-light/10 dark:hover:shadow-accent-dark/10
-            transition-all duration-300
+            inline-flex items-center gap-2 px-2.5 py-1
+            font-mono text-[11px] cursor-default
+            border border-text-light/60 dark:border-terminal/50
+            text-text-light dark:text-terminal
+            hover:bg-text-light hover:text-bg-light
+            dark:hover:bg-terminal dark:hover:text-ink
+            transition-colors duration-200
           "
         >
           <Icon className="w-3.5 h-3.5" />
@@ -37,46 +34,18 @@ function ProjectTech({ tech = [] }) {
 function ProjectCover({ project }) {
   const monogram = project.name.replace(/app$/i, '').charAt(0);
   return (
-    <div
-      aria-hidden
-      className="
-        relative aspect-[16/10] rounded-2xl overflow-hidden
-        border border-accent-light/20 dark:border-accent-dark/20
-        bg-surface-light dark:bg-surface-dark
-        isolate
-      "
-    >
-      {/* Glows animados */}
+    <div aria-hidden className="relative aspect-[16/10] overflow-hidden bg-ink isolate">
+      {/* Señal: gradiente azul granulado */}
       <motion.div
-        className="absolute -top-16 -left-16 w-64 h-64 rounded-full bg-accent-light/15 dark:bg-accent-dark/15 blur-[90px]"
-        animate={{ x: [0, 40, 0], y: [0, 30, 0], scale: [1, 1.15, 1] }}
-        transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute -top-1/4 -right-1/4 w-[80%] aspect-square rounded-full bg-signal/60 blur-[80px]"
+        animate={{ x: [0, -30, 0], y: [0, 20, 0], scale: [1, 1.1, 1] }}
+        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
       />
-      <motion.div
-        className="absolute -bottom-16 -right-16 w-64 h-64 rounded-full bg-accent-light/10 dark:bg-accent-dark/10 blur-[90px]"
-        animate={{ x: [0, -35, 0], y: [0, -35, 0], scale: [1.15, 1, 1.15] }}
-        transition={{ duration: 13, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-      />
+      <div className="grain absolute inset-0 opacity-50" />
 
-      <div className="relative h-full flex flex-col items-center justify-center gap-4">
-        <div className="relative w-20 h-20 md:w-24 md:h-24">
-          <motion.span
-            className="absolute inset-0 rounded-2xl border-2 border-accent-light dark:border-accent-dark"
-            animate={{ scale: [1, 1.15, 1], opacity: [0.7, 0, 0.7] }}
-            transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
-          />
-          <motion.span
-            className="absolute inset-0 rounded-2xl border border-accent-light dark:border-accent-dark"
-            animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
-            transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
-          />
-          <div className="absolute inset-0 rounded-2xl flex items-center justify-center border border-accent-light/30 dark:border-accent-dark/30 bg-accent-light/10 dark:bg-accent-dark/10 backdrop-blur-md">
-            <span className="text-3xl md:text-4xl font-black text-accent-light dark:text-accent-dark">
-              {monogram}
-            </span>
-          </div>
-        </div>
-        <p className="text-sm text-text-secondary-light dark:text-text-secondary-dark">
+      <div className="relative h-full flex flex-col items-start justify-end gap-2 p-6">
+        <span className="font-display text-8xl md:text-9xl leading-[0.8] text-paper">{monogram}</span>
+        <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-terminal">
           {project.coverNote}
         </p>
       </div>
@@ -93,7 +62,7 @@ export default function ProjectRow({ project, reverse = false, index = 0 }) {
   return (
     <div
       className={`
-        grid md:grid-cols-2 gap-8 md:gap-10 items-center group/row
+        grid md:grid-cols-2 gap-10 md:gap-12 items-center group/row
         ${reverse ? 'md:[&>*:first-child]:order-2' : ''}
       `}
     >
@@ -101,29 +70,46 @@ export default function ProjectRow({ project, reverse = false, index = 0 }) {
         <span
           aria-hidden
           className="
-            absolute -top-9 left-0 md:-left-6 -z-10
-            text-7xl font-black leading-none select-none pointer-events-none
-            text-text-light/[0.04] dark:text-text-dark/[0.08]
+            absolute -top-14 left-0 md:-left-8 -z-10
+            font-display text-8xl leading-none select-none pointer-events-none
+            text-transparent opacity-40
+            [-webkit-text-stroke:1.5px_var(--color-text-secondary-light)]
+            dark:[-webkit-text-stroke:1.5px_var(--color-text-secondary-dark)]
           "
         >
           {String(index + 1).padStart(2, '0')}
         </span>
 
-        {hasImages ? (
-          <ProjectCarousel images={project.images} alt={project.name} />
-        ) : (
-          <ProjectCover project={project} />
-        )}
+        {/* Captura pegada sobre papel */}
+        <div
+          className={`
+            relative p-2.5 sm:p-3 bg-surface-light dark:bg-paper
+            border border-ink/10 dark:border-transparent
+            shadow-[0_18px_40px_rgba(11,11,16,0.25)] dark:shadow-[0_18px_40px_rgba(0,0,0,0.5)]
+            transition-transform duration-300 group-hover/row:rotate-0
+            ${reverse ? 'rotate-[1deg]' : '-rotate-[1deg]'}
+          `}
+        >
+          <span
+            aria-hidden
+            className={`absolute -top-3 z-20 w-24 h-6 bg-highlight/75 ${reverse ? 'left-8 -rotate-[5deg]' : 'right-8 rotate-[4deg]'}`}
+          />
+          {hasImages ? (
+            <ProjectCarousel images={project.images} alt={project.name} />
+          ) : (
+            <ProjectCover project={project} />
+          )}
+        </div>
       </div>
 
       <div>
         {project.highlight && (
-          <HighlightBadge className="mb-4">{project.highlight}</HighlightBadge>
+          <HighlightBadge className="mb-5">{project.highlight}</HighlightBadge>
         )}
-        <p className="text-accent-light dark:text-accent-dark text-sm font-medium mb-2">
+        <p className="font-mono text-xs uppercase tracking-[0.14em] text-accent-light dark:text-accent-dark mb-3">
           {project.tag}
         </p>
-        <h3 className="text-2xl font-bold text-text-light dark:text-text-dark mb-3">
+        <h3 className="font-display uppercase text-4xl md:text-5xl leading-[0.95] text-text-light dark:text-text-dark mb-4">
           {project.name}
         </h3>
         <p className="text-text-secondary-light dark:text-text-secondary-dark mb-2">
@@ -133,22 +119,13 @@ export default function ProjectRow({ project, reverse = false, index = 0 }) {
         <ProjectTech tech={project.tech} />
 
         {project.caseStudy && (
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center gap-4">
             {hasLink && (
               <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="
-                  group/link inline-flex items-center gap-2 px-6 py-3 rounded-full
-                  bg-accent-light dark:bg-accent-dark
-                  text-white dark:text-bg-dark font-medium text-sm
-                  shadow-lg shadow-accent-light/20 dark:shadow-accent-dark/20
-                  hover:-translate-y-0.5 hover:shadow-xl
-                  hover:shadow-accent-light/30 dark:hover:shadow-accent-dark/30
-                  active:translate-y-0 active:scale-95
-                  transition-all duration-300
-                "
+                className="group/link btn-brand btn-primary gap-2"
               >
                 {project.linkLabel ?? t('projects.view')}
                 <HiArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
@@ -161,14 +138,7 @@ export default function ProjectRow({ project, reverse = false, index = 0 }) {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="
-                  group/extra inline-flex items-center gap-2 px-6 py-3 rounded-full
-                  border border-accent-light/50 dark:border-accent-dark/50
-                  text-accent-light dark:text-accent-dark font-medium text-sm
-                  hover:-translate-y-0.5 hover:bg-accent-light/10 dark:hover:bg-accent-dark/10
-                  active:translate-y-0 active:scale-95
-                  transition-all duration-300
-                "
+                className="group/extra btn-brand btn-ghost gap-2"
               >
                 {label}
                 <HiArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/extra:translate-x-0.5 group-hover/extra:-translate-y-0.5" />
@@ -178,15 +148,7 @@ export default function ProjectRow({ project, reverse = false, index = 0 }) {
             <button
               type="button"
               onClick={() => setCaseOpen(true)}
-              className="
-                group/case inline-flex items-center gap-2 px-6 py-3 rounded-full
-                border border-text-secondary-light/25 dark:border-text-secondary-dark/25
-                text-text-light dark:text-text-dark font-medium text-sm
-                hover:border-accent-light dark:hover:border-accent-dark
-                hover:text-accent-light dark:hover:text-accent-dark
-                active:scale-95
-                transition-all duration-300
-              "
+              className="btn-brand btn-ghost"
             >
               {t('projects.caseStudy')}
             </button>
@@ -200,22 +162,13 @@ export default function ProjectRow({ project, reverse = false, index = 0 }) {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="
-                  group/link inline-flex items-center gap-2 px-6 py-3 rounded-full
-                  bg-accent-light dark:bg-accent-dark
-                  text-white dark:text-bg-dark font-medium text-sm
-                  shadow-lg shadow-accent-light/20 dark:shadow-accent-dark/20
-                  hover:-translate-y-0.5 hover:shadow-xl
-                  hover:shadow-accent-light/30 dark:hover:shadow-accent-dark/30
-                  active:translate-y-0 active:scale-95
-                  transition-all duration-300
-                "
+                className="group/link btn-brand btn-primary gap-2"
               >
                 {t('projects.view')}
                 <HiArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
               </a>
             ) : (
-              <span className="inline-flex items-center gap-2 text-sm text-text-secondary-light dark:text-text-secondary-dark">
+              <span className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.14em] text-text-secondary-light dark:text-text-secondary-dark">
                 <span className="relative flex w-2 h-2">
                   <span className="absolute inline-flex w-full h-full rounded-full bg-accent-light/60 dark:bg-accent-dark/60 animate-ping" />
                   <span className="relative inline-flex w-2 h-2 rounded-full bg-accent-light dark:bg-accent-dark" />

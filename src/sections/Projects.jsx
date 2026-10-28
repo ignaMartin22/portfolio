@@ -28,30 +28,22 @@ export default function Projects() {
 
           {/* Próximamente */}
           <Reveal delay={0.15}>
-            <div className="relative rounded-2xl border-2 border-dashed border-text-secondary-light/25 dark:border-text-secondary-dark/25 px-6 py-14 text-center overflow-hidden">
-              {/* Esquinas techno */}
-              <span className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-accent-light dark:border-accent-dark rounded-tl-2xl" />
-              <span className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-accent-light dark:border-accent-dark rounded-br-2xl" />
-
-              {/* Líneas discontinuas decorativas */}
+            <div className="relative border-2 border-dashed border-text-secondary-light/40 dark:border-text-secondary-dark/40 px-6 py-14 text-center overflow-hidden">
+              {/* Scanlines CRT */}
               <span
                 aria-hidden
-                className="absolute top-8 left-1/2 -translate-x-1/2 w-28 h-px border-t-2 border-dotted border-text-secondary-light/25 dark:border-text-secondary-dark/25"
-              />
-              <span
-                aria-hidden
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 w-28 h-px border-t-2 border-dotted border-text-secondary-light/25 dark:border-text-secondary-dark/25"
+                className="absolute inset-0 pointer-events-none opacity-60 bg-[repeating-linear-gradient(0deg,color-mix(in_srgb,var(--color-terminal)_10%,transparent)_0_1px,transparent_1px_4px)]"
               />
 
               <div className="relative flex flex-col items-center gap-4">
                 <div className="relative">
                   <motion.div
                     aria-hidden
-                    className="absolute inset-0 rounded-full border border-accent-light dark:border-accent-dark"
-                    animate={{ scale: [1, 1.35, 1], opacity: [0.5, 0, 0.5] }}
+                    className="absolute inset-0 border border-accent-light dark:border-accent-dark"
+                    animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
                     transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
                   />
-                  <div className="relative w-14 h-14 rounded-full flex items-center justify-center border border-accent-light/25 dark:border-accent-dark/25 bg-accent-light/5 dark:bg-accent-dark/5">
+                  <div className="relative w-14 h-14 flex items-center justify-center border-2 border-accent-light dark:border-accent-dark bg-bg-light dark:bg-bg-dark">
                     <motion.span
                       animate={{ rotate: [0, -12, 12, 0] }}
                       transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
@@ -63,10 +55,10 @@ export default function Projects() {
                 </div>
 
                 <div>
-                  <p className="text-accent-light dark:text-accent-dark text-xs uppercase tracking-[0.28em] font-medium mb-2">
+                  <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent-light dark:text-accent-dark mb-3">
                     {t('projects.soon.kicker')}
                   </p>
-                  <h3 className="text-xl font-bold text-text-light dark:text-text-dark">
+                  <h3 className="font-display uppercase text-3xl leading-none text-text-light dark:text-text-dark">
                     {t('projects.soon.title')}
                   </h3>
                   <p className="text-text-secondary-light dark:text-text-secondary-dark text-sm mt-2 max-w-md mx-auto">

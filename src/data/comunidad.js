@@ -16,9 +16,9 @@ const es = {
   tagline: 'El hub tech de Jujuy',
   role: 'Cofundador · Organizador',
   description:
-    'Cofundé JujuyDev, la comunidad de programadores, desarrolladoras y emprendedores tech de San Salvador de Jujuy. Nació en septiembre de 2026 y ya reúne a más de 300 personas: encuentros gratuitos, abiertos a todos y sin nivel mínimo para participar.',
+    'Cofundé JujuyDev, la comunidad de programadores, desarrolladoras y emprendedores tech de San Salvador de Jujuy. Nació en septiembre de 2026 y ya reúne a más de 700 personas: encuentros gratuitos, abiertos a todos y sin nivel mínimo para participar.',
   stats: [
-    { value: '300+', label: 'personas en la comunidad' },
+    { value: '700+', label: 'personas en la comunidad' },
     { value: '51', label: 'en el primer meetup' },
     { value: '77', label: 'en el Meet Up Tech #2' },
   ],
@@ -29,7 +29,7 @@ const es = {
     },
     {
       icon: TbAffiliate,
-      text: 'Alianzas con Fundación CIDEJ, SaltaDev, Superteam Argentina y otras comunidades dev del país.',
+      text: 'Alianzas con Fundación CIDEJ y LABITconf como sponsors, y con comunidades como Superteam Argentina, SaltaDev, CuyoConnect, CrecimientoAR y NovaSür.',
     },
     {
       icon: TbTrophy,
@@ -38,6 +38,7 @@ const es = {
   ],
   eventsLabel: 'Eventos',
   events: [
+    { date: '17 oct', name: 'Builder Session: Agents on Open Rails', detail: 'Celo × Ripio · MINTA Café & Coworking, Jujuy' },
     { date: '3 oct', name: 'Hackatones Monad Metropolis + Superteam Argentina', detail: 'Jujuy · Organizadas en simultáneo por JujuyDev' },
     { date: '29 sep', name: 'Meet Up Tech #2', detail: 'Online · Hackatones, Web3 y becas · 77 personas' },
     { date: '17 sep', name: 'Cabildo Tech Jujuy', detail: 'Cabildo de Jujuy · Charla de Jorge Gronda (Umana) y workshop de IA' },
@@ -54,9 +55,9 @@ const en = {
   tagline: 'The tech hub of Jujuy',
   role: 'Cofounder · Organizer',
   description:
-    'I cofounded JujuyDev, the community of programmers, developers and tech entrepreneurs in San Salvador de Jujuy, Argentina. It started in September 2026 and already brings together more than 300 people: free events, open to everyone, no minimum level required.',
+    'I cofounded JujuyDev, the community of programmers, developers and tech entrepreneurs in San Salvador de Jujuy, Argentina. It started in September 2026 and already brings together more than 700 people: free events, open to everyone, no minimum level required.',
   stats: [
-    { value: '300+', label: 'people in the community' },
+    { value: '700+', label: 'people in the community' },
     { value: '51', label: 'at the first meetup' },
     { value: '77', label: 'at Meet Up Tech #2' },
   ],
@@ -67,7 +68,7 @@ const en = {
     },
     {
       icon: TbAffiliate,
-      text: 'Partnerships with Fundación CIDEJ, SaltaDev, Superteam Argentina and other dev communities across the country.',
+      text: 'Partnerships with Fundación CIDEJ and LABITconf as sponsors, and with communities like Superteam Argentina, SaltaDev, CuyoConnect, CrecimientoAR and NovaSür.',
     },
     {
       icon: TbTrophy,
@@ -76,6 +77,7 @@ const en = {
   ],
   eventsLabel: 'Events',
   events: [
+    { date: 'Oct 17', name: 'Builder Session: Agents on Open Rails', detail: 'Celo × Ripio · MINTA Café & Coworking, Jujuy' },
     { date: 'Oct 3', name: 'Monad Metropolis + Superteam Argentina hackathons', detail: 'Jujuy · Hosted at the same time by JujuyDev' },
     { date: 'Sep 29', name: 'Meet Up Tech #2', detail: 'Online · Hackathons, Web3 and scholarships · 77 people' },
     { date: 'Sep 17', name: 'Cabildo Tech Jujuy', detail: 'Cabildo de Jujuy · Talk by Jorge Gronda (Umana) and an AI workshop' },
