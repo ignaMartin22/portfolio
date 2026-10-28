@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useLanguage } from '../i18n/useLanguage';
+import SpiderMark from './SpiderMark';
 
 const cvOptions = [
   {
@@ -26,13 +27,13 @@ export default function CvButton() {
         onClick={() => setIsOpen(true)}
         className="btn-brand btn-primary mt-8 text-lg"
       >
-        <motion.img
-          src="/spider-icon.png"
-          alt=""
-          className="w-6 h-6 object-contain"
+        <motion.span
+          className="flex"
           animate={{ rotate: [0, 12, -12, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-        />
+        >
+          <SpiderMark className="w-7 h-7" />
+        </motion.span>
         {t('cv.cta')}
       </button>
 
