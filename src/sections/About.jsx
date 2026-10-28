@@ -36,12 +36,12 @@ export default function About() {
                 onClick={() => setActive(key)}
                 whileTap={{ scale: 0.95 }}
                 className={`
-                  relative px-5 py-2.5 rounded-full text-sm font-medium
-                  border transition-colors duration-200
+                  relative px-4 py-2 font-mono text-xs uppercase tracking-[0.1em]
+                  border-2 transition-colors duration-200
                   ${
                     active === key
-                      ? 'text-white dark:text-bg-dark border-transparent'
-                      : 'bg-transparent text-text-secondary-light dark:text-text-secondary-dark border-text-secondary-light/20 dark:border-text-secondary-dark/20 hover:border-accent-light dark:hover:border-accent-dark'
+                      ? 'text-paper border-transparent'
+                      : 'bg-transparent text-text-light dark:text-text-dark border-text-light/30 dark:border-text-secondary-dark/30 hover:border-accent-light dark:hover:border-accent-dark'
                   }
                 `}
               >
@@ -49,7 +49,7 @@ export default function About() {
                   <motion.span
                     layoutId="about-pill"
                     transition={{ type: 'spring', stiffness: 400, damping: 32 }}
-                    className="absolute inset-0 rounded-full bg-accent-light dark:bg-accent-dark"
+                    className="absolute -inset-[2px] bg-accent-light dark:bg-accent-dark shadow-[3px_3px_0_var(--color-ink)] dark:shadow-[3px_3px_0_var(--color-paper)]"
                   />
                 )}
                 <span className="relative z-10">{data[key].label}</span>
@@ -67,15 +67,12 @@ export default function About() {
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.25 }}
             className="
-              relative rounded-2xl p-6 sm:p-8
-              bg-white/5 dark:bg-white/[0.03]
-              backdrop-blur-md
-              border border-accent-light/20 dark:border-accent-dark/20
+              relative p-6 sm:p-8
+              bg-surface-light dark:bg-surface-dark
+              border-2 border-text-light/80 dark:border-text-secondary-dark/30
+              shadow-[6px_6px_0_var(--color-accent-light)] dark:shadow-[6px_6px_0_var(--color-accent-dark)]
             "
           >
-            {/* Esquinas tipo circuito, detalle techno */}
-            <span className="absolute top-0 left-0 w-6 h-6 border-t border-l border-accent-light dark:border-accent-dark rounded-tl-2xl" />
-            <span className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-accent-light dark:border-accent-dark rounded-br-2xl" />
 
             {data[active].type === 'bubbles' ? (
               <div className="flex flex-wrap justify-center gap-6">
@@ -86,7 +83,7 @@ export default function About() {
             ) : (
               <ul className="space-y-5">
                 {data[active].items.map((item, i) => (
-                  <li key={i} className="flex flex-col gap-1">
+                  <li key={i} className="flex flex-col gap-1 pl-4 border-l-2 border-accent-light dark:border-accent-dark">
                     {item.url ? (
                       <a
                         href={item.url}
@@ -103,7 +100,7 @@ export default function About() {
                           </span>
                         )}
                         {item.period && (
-                          <span className="text-accent-light dark:text-accent-dark text-xs">
+                          <span className="font-mono text-[11px] text-accent-light dark:text-accent-dark">
                             {item.period}
                           </span>
                         )}
@@ -119,7 +116,7 @@ export default function About() {
                           </span>
                         )}
                         {item.period && (
-                          <span className="text-accent-light dark:text-accent-dark text-xs">
+                          <span className="font-mono text-[11px] text-accent-light dark:text-accent-dark">
                             {item.period}
                           </span>
                         )}

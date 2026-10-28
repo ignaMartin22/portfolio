@@ -53,20 +53,18 @@ export default function Stats() {
               <div
                 key={item.label}
                 className="
-                  group relative rounded-2xl px-6 py-10 text-center
-                  bg-white/5 dark:bg-white/[0.03]
-                  backdrop-blur-md
-                  border border-text-secondary-light/15 dark:border-text-secondary-dark/15
-                  hover:border-accent-light/50 dark:hover:border-accent-dark/50
-                  transition-colors duration-300
+                  group relative px-5 py-8 sm:py-10 text-left
+                  bg-surface-light dark:bg-surface-dark
+                  border-2 border-text-light/80 dark:border-text-secondary-dark/30
+                  hover:-translate-x-0.5 hover:-translate-y-0.5
+                  hover:shadow-[6px_6px_0_var(--color-accent-light)] dark:hover:shadow-[6px_6px_0_var(--color-accent-dark)]
+                  transition-[transform,box-shadow] duration-200
                 "
               >
-                <span className="absolute top-0 left-0 w-6 h-6 border-t border-l border-accent-light dark:border-accent-dark rounded-tl-2xl group-hover:animate-pulse" />
-
-                <p className="text-4xl sm:text-5xl font-black text-text-light dark:text-text-dark mb-3 transition-colors duration-300 group-hover:text-accent-light dark:group-hover:text-accent-dark">
+                <p className="font-display text-6xl sm:text-7xl leading-none text-text-light dark:text-text-dark mb-4 transition-colors duration-200 group-hover:text-accent-light dark:group-hover:text-accent-dark">
                   <CountUp to={item.value} suffix={item.suffix} />
                 </p>
-                <p className="text-xs sm:text-sm text-text-secondary-light dark:text-text-secondary-dark">
+                <p className="font-mono text-[11px] uppercase tracking-[0.1em] leading-snug text-text-secondary-light dark:text-text-secondary-dark">
                   {item.label}
                 </p>
               </div>
