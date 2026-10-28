@@ -15,7 +15,7 @@ export default function Services() {
     <section id="services" className="py-24 px-6 sm:px-10 lg:px-20 scroll-mt-24">
       <div className="max-w-6xl mx-auto">
         <Reveal>
-          <p className="text-accent-light dark:text-accent-dark text-sm font-medium mb-2 text-center">
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent-light dark:text-accent-dark mb-3 text-center">
             {t('services.kicker')}
           </p>
           <div className="mb-4">

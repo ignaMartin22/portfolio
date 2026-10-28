@@ -9,7 +9,7 @@
       name="description"
       content="Portfolio de Ignacio Martín, Full-Stack Developer y AI Agent Orchestration. Desarrollo web con Angular, Node y React, y aplicaciones móviles con React Native."
     />
-    <meta name="theme-color" id="theme-color-meta" content="#0B0F14" />
+    <meta name="theme-color" id="theme-color-meta" content="#0B0B10" />
     <meta name="color-scheme" id="color-scheme-meta" content="light dark" />
     <script>
       (function () {
@@ -20,10 +20,17 @@
             (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
           document.documentElement.classList.toggle('dark', dark);
           var meta = document.getElementById('theme-color-meta');
-          if (meta) meta.setAttribute('content', dark ? '#0B0F14' : '#FAFAF9');
+          if (meta) meta.setAttribute('content', dark ? '#0B0B10' : '#ECE6D9');
         } catch (e) {}
       })();
     </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700&family=Permanent+Marker&family=Space+Mono:wght@400;700&display=swap"
+    />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Ignacio Martín - Full-Stack Developer" />
@@ -31,7 +38,7 @@
       property="og:description"
       content="Construyo sistemas eficientes y escalables, enfocados en resolver problemas reales. Web, apps móviles y automatización con IA."
     />
-    <meta property="og:image" content="/ignacioMartin_red.jpeg" />
+    <meta property="og:image" content="/ignacio-martin-og.jpg" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Ignacio Martín - Full-Stack Developer" />
@@ -39,9 +46,9 @@
       name="twitter:description"
       content="Construyo sistemas eficientes y escalables. Web, apps móviles y automatización con IA."
     />
-    <meta name="twitter:image" content="/ignacioMartin_red.jpeg" />
+    <meta name="twitter:image" content="/ignacio-martin-og.jpg" />
 
-    <link rel="preload" as="image" href="/ignacioMartin_red.jpeg" fetchpriority="high" />
+    <link rel="preload" as="image" href="/ignacio-martin.webp" fetchpriority="high" />
   </head>
   <body class="bg-bg-light dark:bg-bg-dark">
     <div id="root"></div>

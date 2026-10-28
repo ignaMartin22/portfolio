@@ -24,17 +24,7 @@ export default function CvButton() {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="
-          inline-flex items-center gap-3 mt-6
-          px-6 py-3 rounded-full touch-manipulation
-          bg-accent-light dark:bg-accent-dark
-          text-white dark:text-bg-dark font-medium text-sm
-          hover:-translate-y-0.5 hover:shadow-xl
-          hover:shadow-accent-light/40 dark:hover:shadow-accent-dark/40
-          active:translate-y-0 active:scale-95
-          transition-all duration-300
-          shadow-lg shadow-accent-light/20 dark:shadow-accent-dark/20
-        "
+        className="btn-brand btn-primary mt-8 text-lg"
       >
         <motion.img
           src="/spider-icon.png"
@@ -52,26 +42,27 @@ export default function CvButton() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-bg-dark/60 dark:bg-bg-dark/70 backdrop-blur-sm px-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-ink/70 backdrop-blur-sm px-4"
             onClick={() => setIsOpen(false)}
           >
+            {/* Tarjeta de papel pegada con cinta */}
             <motion.div
-              initial={{ opacity: 0, y: 18, scale: 0.96 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 12, scale: 0.96 }}
+              initial={{ opacity: 0, y: 18, rotate: -4 }}
+              animate={{ opacity: 1, y: 0, rotate: -1 }}
+              exit={{ opacity: 0, y: 12, rotate: 2 }}
               transition={{ duration: 0.22, ease: 'easeOut' }}
               onClick={(event) => event.stopPropagation()}
-              className="relative w-full max-w-md rounded-2xl border border-white/20 dark:border-white/10 bg-white/10 dark:bg-white/[0.04] backdrop-blur-2xl shadow-[0_24px_80px_rgba(0,0,0,0.35)] overflow-hidden"
+              className="relative w-full max-w-md bg-paper text-ink shadow-[0_24px_80px_rgba(0,0,0,0.45)]"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-accent-light/10 via-transparent to-accent-dark/10 dark:from-accent-light/10 dark:via-transparent dark:to-accent-dark/10" />
+              <span aria-hidden className="absolute -top-3 left-[38%] w-24 h-6 rotate-[4deg] bg-highlight/75" />
 
-              <div className="relative p-6">
+              <div className="relative p-6 pt-7">
                 <div className="flex items-start justify-between gap-3 mb-5">
                   <div>
-                    <p className="text-xs uppercase tracking-[0.28em] text-accent-light dark:text-accent-dark mb-2">
+                    <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent-light mb-2">
                       Download
                     </p>
-                    <h3 className="text-xl font-semibold text-text-light dark:text-text-dark">
+                    <h3 className="font-display uppercase text-3xl leading-none">
                       {t('cv.downloadLabel')}
                     </h3>
                   </div>
@@ -79,7 +70,7 @@ export default function CvButton() {
                     type="button"
                     aria-label={t('projects.close')}
                     onClick={() => setIsOpen(false)}
-                    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 dark:border-white/10 bg-white/5 dark:bg-white/[0.03] text-text-secondary-light dark:text-text-secondary-dark transition hover:text-text-light dark:hover:text-text-dark"
+                    className="flex h-9 w-9 shrink-0 items-center justify-center border-2 border-ink text-lg leading-none transition-colors hover:bg-ink hover:text-paper"
                   >
                     ×
                   </button>
@@ -94,23 +85,23 @@ export default function CvButton() {
                       target="_blank"
                       rel="noreferrer"
                       onClick={() => setIsOpen(false)}
-                      className="group flex items-center justify-between gap-3 rounded-xl border border-accent-light/20 dark:border-accent-dark/20 bg-white/5 dark:bg-white/[0.03] px-4 py-3 text-left transition-all duration-200 hover:-translate-y-0.5 hover:border-accent-light dark:hover:border-accent-dark hover:shadow-lg hover:shadow-accent-light/10 dark:hover:shadow-accent-dark/10"
+                      className="group flex items-center justify-between gap-3 border-2 border-ink px-4 py-3 text-left transition-[transform,box-shadow] duration-150 hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[4px_4px_0_var(--color-accent-light)]"
                     >
                       <div className="flex items-center gap-3">
-                        <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent-light/10 dark:bg-accent-dark/10 text-accent-light dark:text-accent-dark text-sm font-semibold">
+                        <span className="flex h-9 w-9 items-center justify-center bg-ink text-paper font-mono text-xs font-bold">
                           {code}
                         </span>
                         <div>
-                          <p className="text-sm font-medium text-text-light dark:text-text-dark">
+                          <p className="text-sm font-medium">
                             {t('cv.cta')}
                           </p>
-                          <p className="text-xs text-text-secondary-light dark:text-text-secondary-dark">
+                          <p className="font-mono text-[11px] text-ink/60">
                             {code === 'ES' ? t('cv.es') : t('cv.en')}
                           </p>
                         </div>
                       </div>
 
-                      <span className="text-sm text-accent-light dark:text-accent-dark transition group-hover:translate-x-1">
+                      <span className="text-sm text-accent-light transition group-hover:translate-x-1">
                         →
                       </span>
                     </a>
