@@ -34,42 +34,32 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: EASE }}
-              whileHover={{ y: -10 }}
+              whileHover={{ x: -3, y: -3 }}
               className="
-                group relative rounded-2xl p-6 sm:p-8
-                bg-white/5 dark:bg-white/[0.03]
-                backdrop-blur-md
-                border border-text-secondary-light/15 dark:border-text-secondary-dark/15
-                hover:border-accent-light/50 dark:hover:border-accent-dark/50
-                transition-colors duration-300
+                group relative p-6 sm:p-8
+                bg-surface-light dark:bg-surface-dark
+                border-2 border-text-light/80 dark:border-text-secondary-dark/30
+                hover:border-text-light dark:hover:border-text-dark
+                hover:shadow-[6px_6px_0_var(--color-accent-light)] dark:hover:shadow-[6px_6px_0_var(--color-accent-dark)]
+                transition-[box-shadow,border-color] duration-200
               "
             >
-              <span className="absolute top-0 left-0 w-6 h-6 border-t border-l border-accent-light dark:border-accent-dark rounded-tl-2xl" />
-              <span className="absolute bottom-0 right-0 w-6 h-6 border-b border-r border-accent-light dark:border-accent-dark rounded-br-2xl" />
-
-              <div className="relative mb-6">
-                <motion.span
-                  aria-hidden
-                  className="absolute inset-0 rounded-2xl bg-accent-light/15 dark:bg-accent-dark/15 blur-xl"
-                  animate={{ opacity: [0.6, 1, 0.6] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: i * 0.4 }}
-                />
-                <div className="relative w-14 h-14 rounded-2xl flex items-center justify-center border border-accent-light/25 dark:border-accent-dark/25 bg-accent-light/10 dark:bg-accent-dark/10">
-                  <service.icon className="w-7 h-7 text-accent-light dark:text-accent-dark transition-transform duration-300 group-hover:scale-110" />
+              <div className="flex items-start justify-between gap-4 mb-6">
+                <div className="w-14 h-14 flex items-center justify-center bg-text-light dark:bg-ink border-2 border-text-light dark:border-terminal/60">
+                  <service.icon className="w-7 h-7 text-bg-light dark:text-terminal transition-transform duration-300 group-hover:scale-110" />
                 </div>
+                <span className="flex items-center gap-1 font-mono text-xs text-text-secondary-light dark:text-text-secondary-dark group-hover:text-accent-light dark:group-hover:text-accent-dark transition-colors">
+                  {String(i + 1).padStart(2, '0')}
+                  <TbArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </span>
               </div>
 
-              <h3 className="text-lg font-bold text-text-light dark:text-text-dark mb-2">
+              <h3 className="font-display uppercase text-2xl md:text-3xl leading-none text-text-light dark:text-text-dark mb-3">
                 {service.title}
               </h3>
               <p className="text-sm text-text-secondary-light dark:text-text-secondary-dark leading-relaxed">
                 {service.text}
               </p>
-
-              <div className="mt-6 flex items-center gap-1.5 text-xs font-medium text-accent-light dark:text-accent-dark opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {String(i + 1).padStart(2, '0')}
-                <TbArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </div>
             </motion.div>
           ))}
         </div>

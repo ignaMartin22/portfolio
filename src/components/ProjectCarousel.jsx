@@ -82,11 +82,8 @@ export default function ProjectCarousel({ images = [], alt }) {
   return (
     <div
       className="
-        group relative rounded-2xl overflow-hidden shadow-xl
-        border border-text-secondary-light/10 dark:border-text-secondary-dark/10
+        group relative overflow-hidden
         bg-surface-light dark:bg-surface-dark
-        transition-shadow duration-500
-        hover:shadow-2xl hover:shadow-accent-light/10 dark:hover:shadow-accent-dark/10
       "
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
@@ -128,12 +125,11 @@ export default function ProjectCarousel({ images = [], alt }) {
             onClick={() => step(-1)}
             className="
               absolute left-3 top-1/2 -translate-y-1/2 z-10
-              w-10 h-10 rounded-full
+              w-10 h-10
               flex items-center justify-center
-              bg-bg-light/80 dark:bg-bg-dark/80
+              bg-bg-light dark:bg-bg-dark
               text-text-light dark:text-text-dark
-              border border-text-secondary-light/15 dark:border-text-secondary-dark/15
-              backdrop-blur-md
+              border-2 border-text-light dark:border-text-dark
               md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100
               hover:border-accent-light dark:hover:border-accent-dark
               hover:text-accent-light dark:hover:text-accent-dark
@@ -148,12 +144,11 @@ export default function ProjectCarousel({ images = [], alt }) {
             onClick={() => step(1)}
             className="
               absolute right-3 top-1/2 -translate-y-1/2 z-10
-              w-10 h-10 rounded-full
+              w-10 h-10
               flex items-center justify-center
-              bg-bg-light/80 dark:bg-bg-dark/80
+              bg-bg-light dark:bg-bg-dark
               text-text-light dark:text-text-dark
-              border border-text-secondary-light/15 dark:border-text-secondary-dark/15
-              backdrop-blur-md
+              border-2 border-text-light dark:border-text-dark
               md:opacity-0 md:group-hover:opacity-100 md:group-focus-within:opacity-100
               hover:border-accent-light dark:hover:border-accent-dark
               hover:text-accent-light dark:hover:text-accent-dark
@@ -172,7 +167,7 @@ export default function ProjectCarousel({ images = [], alt }) {
                 aria-current={i === current}
                 onClick={() => goTo(i, i > current ? 1 : -1)}
                 className={`
-                  h-1.5 rounded-full transition-all duration-500
+                  h-1.5 transition-all duration-500
                   ${
                     i === current
                       ? 'w-6 bg-accent-light dark:bg-accent-dark'
