@@ -12,7 +12,7 @@ const es = [
     tags: ['Solana', 'Monad', 'USDC', 'Trabajo en equipo'],
     badge: 'Finalista · Superteam Argentina',
     description:
-      'Participé en un equipo de 4 en dos hackatones Web3 con AstroAm, una app de datos móviles para viajeros que se paga por MB en USDC: la de Superteam Argentina, sobre Solana, donde llegamos a la final, y Monad Metropolis 2026, sobre Monad.',
+      'Participé en un equipo de 4 en dos hackatones Web3 con AstroAm, una app de datos móviles para viajeros que se paga por MB en USDC: la de Superteam Argentina, sobre Solana, donde llegamos a la final, y Monad Metropolis 2026, sobre Monad. El proyecto sigue en marcha y ya abrimos la waitlist para la beta privada.',
     highlights: [
       {
         icon: TbFileCertificate,
@@ -86,7 +86,7 @@ const en = [
     tags: ['Solana', 'Monad', 'USDC', 'Teamwork'],
     badge: 'Finalist · Superteam Argentina',
     description:
-      'In a team of 4, I took part in two Web3 hackathons with AstroAm, a mobile data app for travelers paid per MB in USDC: Superteam Argentina, on Solana, where we reached the final, and Monad Metropolis 2026, on Monad.',
+      'In a team of 4, I took part in two Web3 hackathons with AstroAm, a mobile data app for travelers paid per MB in USDC: Superteam Argentina, on Solana, where we reached the final, and Monad Metropolis 2026, on Monad. The project is still going and we have opened the waitlist for the private beta.',
     highlights: [
       {
         icon: TbFileCertificate,

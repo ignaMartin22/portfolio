@@ -100,10 +100,10 @@ export default function TornPortrait() {
         <span aria-hidden className="tape absolute top-[3%] left-[30%] w-[34%] h-[8%] -rotate-[8deg]" />
         <span aria-hidden className="tape absolute bottom-[9%] right-[2%] w-[26%] h-[8%] -rotate-[38deg]" />
 
-        <span className="absolute -top-[5%] right-0 flex items-center gap-2 font-mono text-[10px] tracking-[0.1em] text-terminal">
+        <span className="absolute -top-[5%] right-0 flex items-center gap-2 font-mono text-[10px] tracking-[0.1em] text-text-light dark:text-terminal">
           <span className="relative flex w-2 h-2">
-            <span className="absolute inline-flex w-full h-full rounded-full bg-terminal/60 animate-ping" />
-            <span className="relative inline-flex w-2 h-2 rounded-full bg-terminal" />
+            <span className="absolute inline-flex w-full h-full rounded-full bg-accent-light/60 dark:bg-terminal/60 animate-ping" />
+            <span className="relative inline-flex w-2 h-2 rounded-full bg-accent-light dark:bg-terminal" />
           </span>
           {t('hero.available')}
         </span>

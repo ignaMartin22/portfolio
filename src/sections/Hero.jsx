@@ -30,21 +30,6 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden scroll-mt-24"
     >
-      {/* Señal: gradiente azul granulado */}
-      <motion.div
-        aria-hidden
-        className="absolute -top-40 -left-40 w-[36rem] h-[36rem] rounded-full bg-signal/25 dark:bg-signal/30 blur-[130px] pointer-events-none"
-        animate={{ x: [0, 50, 0], y: [0, 70, 0], scale: [1, 1.12, 1] }}
-        transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        aria-hidden
-        className="absolute -bottom-40 -right-40 w-[32rem] h-[32rem] rounded-full bg-accent-light/10 dark:bg-accent-dark/15 blur-[130px] pointer-events-none"
-        animate={{ x: [0, -45, 0], y: [0, -50, 0], scale: [1.12, 1, 1.12] }}
-        transition={{ duration: 19, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
-      />
-      <div aria-hidden className="grain absolute inset-0 opacity-20 dark:opacity-25 pointer-events-none" />
-
       <div className="relative max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-12 md:gap-10 items-center px-8 pt-28 md:pt-28 pb-20 md:pb-0">
         {/* Retrato collage */}
         <motion.div
@@ -95,10 +80,11 @@ export default function Hero() {
           </motion.p>
           <motion.h1
             variants={item}
-            className="font-display uppercase text-6xl sm:text-7xl lg:text-8xl leading-[0.92] text-text-light dark:text-text-dark mb-6 text-balance"
+            className="font-display uppercase text-6xl sm:text-7xl lg:text-8xl leading-[0.95] text-text-light dark:text-text-dark mb-6"
           >
-            Ignacio{' '}
-            <span className="relative inline-block isolate">
+            <span className="block">Ignacio</span>
+            {/* Aire arriba para que no se corte la tilde de la Í */}
+            <span className="relative inline-block isolate mt-[0.16em]">
               <span
                 aria-hidden
                 className="torn absolute -left-2 -right-3 bottom-[8%] h-[42%] -z-10 -rotate-[1.5deg] bg-accent-light dark:bg-accent-dark"

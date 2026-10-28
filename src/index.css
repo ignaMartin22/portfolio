@@ -2,11 +2,11 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @theme {
   /* Modo claro: papel */
-  --color-bg-light: #ECE6D9;
-  --color-surface-light: #F6F2EA;
-  --color-text-light: #0B0B10;
-  --color-text-secondary-light: #55524B;
-  --color-accent-light: #C8141D;
+  --color-bg-light: #D8D2C6;
+  --color-surface-light: #E4DFD4;
+  --color-text-light: #17171D;
+  --color-text-secondary-light: #47443E;
+  --color-accent-light: #B0141C;
 
   /* Modo oscuro: tinta */
   --color-bg-dark: #0B0B10;
@@ -70,16 +70,19 @@ body {
   }
 }
 
-.tech-grid {
-  --grid-line: color-mix(in srgb, var(--color-accent-light) 12%, transparent);
+/* Grilla wireframe del fondo: se ve en los bordes y se apaga detrás del contenido */
+.wire-grid {
+  --grid-line: color-mix(in srgb, var(--color-text-light) 9%, transparent);
   background-image:
     linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 28px 28px;
+  background-size: 56px 56px;
+  background-position: center top;
+  mask-image: radial-gradient(ellipse 70% 65% at 50% 50%, transparent 35%, #000 100%);
 }
 
-.dark .tech-grid {
-  --grid-line: color-mix(in srgb, var(--color-accent-dark) 12%, transparent);
+.dark .wire-grid {
+  --grid-line: color-mix(in srgb, var(--color-signal) 22%, transparent);
 }
 
 /* Ruido: grano para fondos y miniaturas */

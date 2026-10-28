@@ -4,7 +4,7 @@ import Hero from './sections/Hero'
 import Navbar from './components/Navbar'
 import SpideyScrollCompanion from './components/SpideyScrollCompanion'
 import Projects from './sections/Projects'
-import WebPattern from './components/WebPattern'
+import BrandBackground from './components/BrandBackground'
 import About from './sections/About'
 import Contact from './sections/Contact'
 import Experience from './sections/Experience'
@@ -21,9 +21,8 @@ function App() {
     <MotionConfig reducedMotion="user">
       <LanguageProvider>
         <ScrollProgress />
-        <WebPattern />
+        <BrandBackground />
         <Navbar />
-        <SectionDivider />
         <SpideyScrollCompanion />
         <main>
           <Hero />

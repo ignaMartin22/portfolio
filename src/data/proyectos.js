@@ -25,11 +25,14 @@ const es = [
     tag: 'Web3 · Solana + Monad · Pagos en USDC · eSIM',
     highlight: 'Finalista · Hackatón Superteam Argentina (Solana)',
     description:
-      'Datos móviles en cualquier país, pagados por MB en USDC. El viajero deposita USDC en un escrow on-chain e instala una eSIM; mientras navega, la app firma vales acumulativos sin una transacción por megabyte. Al terminar el viaje, una sola transacción cobra lo usado y devuelve el resto a la wallet. Lo desarrollamos en equipo sobre dos redes: Solana, para la hackatón de Superteam Argentina (comunidad del ecosistema Solana), donde llegamos a la final, y Monad, para Monad Metropolis 2026.',
+      'Datos móviles en cualquier país, pagados por MB en USDC. El viajero deposita USDC en un escrow on-chain e instala una eSIM; mientras navega, la app firma vales acumulativos sin una transacción por megabyte. Al terminar el viaje, una sola transacción cobra lo usado y devuelve el resto a la wallet. Lo desarrollamos en equipo sobre dos redes: Solana, para la hackatón de Superteam Argentina (comunidad del ecosistema Solana), donde llegamos a la final, y Monad, para Monad Metropolis 2026. Hoy el proyecto sigue y ya tiene la waitlist abierta para la beta privada.',
     images: astroamImages,
-    link: 'https://github.com/FrancoDuran23/astroam-solana',
-    linkLabel: 'Repo Solana',
-    extraLinks: [{ label: 'Repo Monad', url: 'https://github.com/FrancoDuran23/astroam-monad' }],
+    link: 'https://astroam-solana.vercel.app/#waitlist',
+    linkLabel: 'Sumate a la waitlist',
+    extraLinks: [
+      { label: 'Repo Solana', url: 'https://github.com/FrancoDuran23/astroam-solana' },
+      { label: 'Repo Monad', url: 'https://github.com/FrancoDuran23/astroam-monad' },
+    ],
     coverNote: 'Web3 · Hackatón',
     tech: astroamTech,
     caseStudy: {
@@ -123,11 +126,14 @@ const en = [
     tag: 'Web3 · Solana + Monad · USDC payments · eSIM',
     highlight: 'Finalist · Superteam Argentina Hackathon (Solana)',
     description:
-      'Mobile data in any country, paid per MB in USDC. The traveler deposits USDC into an on-chain escrow and installs one eSIM; while browsing, the app signs cumulative vouchers with no transaction per megabyte. When the trip ends, a single transaction pays for what was used and returns the rest to the wallet. We built it as a team on two networks: Solana, for the Superteam Argentina hackathon (a Solana ecosystem community), where we reached the final, and Monad, for Monad Metropolis 2026.',
+      'Mobile data in any country, paid per MB in USDC. The traveler deposits USDC into an on-chain escrow and installs one eSIM; while browsing, the app signs cumulative vouchers with no transaction per megabyte. When the trip ends, a single transaction pays for what was used and returns the rest to the wallet. We built it as a team on two networks: Solana, for the Superteam Argentina hackathon (a Solana ecosystem community), where we reached the final, and Monad, for Monad Metropolis 2026. The project keeps going and the waitlist for the private beta is now open.',
     images: astroamImages,
-    link: 'https://github.com/FrancoDuran23/astroam-solana',
-    linkLabel: 'Repo Solana',
-    extraLinks: [{ label: 'Repo Monad', url: 'https://github.com/FrancoDuran23/astroam-monad' }],
+    link: 'https://astroam-solana.vercel.app/#waitlist',
+    linkLabel: 'Join the waitlist',
+    extraLinks: [
+      { label: 'Solana repo', url: 'https://github.com/FrancoDuran23/astroam-solana' },
+      { label: 'Monad repo', url: 'https://github.com/FrancoDuran23/astroam-monad' },
+    ],
     coverNote: 'Web3 · Hackathon',
     tech: astroamTech,
     caseStudy: {

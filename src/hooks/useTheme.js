@@ -25,7 +25,7 @@ export function useTheme() {
     }
     const metaColor = document.getElementById('theme-color-meta');
     const metaScheme = document.getElementById('color-scheme-meta');
-    if (metaColor) metaColor.setAttribute('content', theme === 'dark' ? '#0B0B10' : '#ECE6D9');
+    if (metaColor) metaColor.setAttribute('content', theme === 'dark' ? '#0B0B10' : '#D8D2C6');
     if (metaScheme) metaScheme.setAttribute('content', theme);
   }, [theme]);
 

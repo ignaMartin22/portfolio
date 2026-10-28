@@ -1,15 +1,13 @@
-import { motion } from 'motion/react';
+import { TbScissors } from 'react-icons/tb';
 
+// Separador de zine: línea punteada de "cortar acá"
 export default function SectionDivider() {
   return (
-    <div className="relative flex items-center justify-center py-4 px-8">
-      <div className="w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-text-secondary-light/20 dark:via-text-secondary-dark/20 to-transparent" />
-      <motion.span
-        aria-hidden
-        className="absolute w-2 h-2 rotate-45 border border-accent-light dark:border-accent-dark bg-bg-light dark:bg-bg-dark"
-        animate={{ scale: [1, 1.5, 1], opacity: [1, 0.4, 1] }}
-        transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-      />
+    <div aria-hidden className="flex items-center justify-center py-4 px-8">
+      <div className="relative w-full max-w-5xl flex items-center gap-3 text-text-secondary-light/60 dark:text-text-secondary-dark/50">
+        <TbScissors className="w-4 h-4 shrink-0 -rotate-90 text-accent-light dark:text-accent-dark" />
+        <span className="flex-1 border-t-2 border-dashed border-current" />
+      </div>
     </div>
   );
 }

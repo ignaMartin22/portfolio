@@ -27,7 +27,25 @@ export default function Community() {
 
         <Reveal delay={0.1}>
           {/* Borde con el degradé de JujuyDev */}
-          <div className={`relative p-[2px] bg-gradient-to-br ${JD_GRADIENT} shadow-[6px_6px_0_#c0399c]`}>
+          <div className="relative mt-10 sm:mt-12">
+          {/* Sticker de la llama de JujuyDev, pegado con cinta en la esquina del marco */}
+          <motion.div
+            className="absolute -top-14 -right-3 sm:-top-16 sm:-right-8 z-20 w-32 sm:w-44 pointer-events-none select-none"
+            initial={{ rotate: 8 }}
+            animate={{ rotate: [6, 10, 6] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <img
+              src="/jujuydev-llama.webp"
+              alt="La llama, mascota de JujuyDev"
+              width="432"
+              height="432"
+              loading="lazy"
+              className="w-full rounded-full shadow-[0_14px_30px_rgba(0,0,0,0.4)]"
+            />
+            <span aria-hidden className="absolute -top-1 left-1/2 -translate-x-1/2 -rotate-[14deg] w-16 sm:w-20 h-5 sm:h-6 bg-highlight/80" />
+          </motion.div>
+          <div className={`relative z-10 p-[2px] bg-gradient-to-br ${JD_GRADIENT} shadow-[6px_6px_0_#c0399c]`}>
             <div className="relative overflow-hidden isolate bg-bg-light dark:bg-bg-dark p-6 sm:p-8 lg:p-10">
               <motion.div
                 aria-hidden
@@ -140,6 +158,7 @@ export default function Community() {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </Reveal>
       </div>

@@ -57,6 +57,18 @@ function DefaultPanel({ exp }) {
 
 function AstroamPanel({ exp }) {
   return (
+    <div className="relative">
+      {/* Orbi, la mascota de AstroAm, orbitando sobre el panel */}
+      <motion.img
+        src="/orbi.webp"
+        alt="Orbi, la mascota de AstroAm"
+        width="360"
+        height="339"
+        loading="lazy"
+        className="absolute -top-24 right-0 sm:-top-28 sm:-right-10 z-20 w-32 sm:w-44 drop-shadow-[0_12px_24px_rgba(106,69,255,0.45)] pointer-events-none select-none"
+        animate={{ y: [0, -10, 0], rotate: [-4, 3, -4] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+      />
     <div className="relative p-6 sm:p-8 overflow-hidden isolate bg-[#070814] border-2 border-[#6A45FF]/70 shadow-[6px_6px_0_#6A45FF]">
       {/* Fondo espacial: glows + estrellas */}
       <motion.div
@@ -124,6 +136,7 @@ function AstroamPanel({ exp }) {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 }
