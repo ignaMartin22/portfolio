@@ -4,6 +4,7 @@ import {
 } from 'react-icons/si';
 
 const vaultixImages = [
+  '/vaultix-portada.jpg',
   '/vaultix-img1.jpg',
   '/vaultix-img2.jpg',
   '/vaultix-img3.jpg',
