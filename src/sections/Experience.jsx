@@ -18,6 +18,132 @@ const STARS = [
   [74, 56, 1], [86, 24, 1], [93, 78, 1.5], [15, 92, 1], [56, 44, 1],
 ];
 
+// Paleta del manual de marca de Vaultix
+const VX_SPECTRAL =
+  'linear-gradient(90deg, #0F3A3C 0%, #2F5BFF 28%, #8B3DFF 52%, #FF3E8A 76%, #FF6A1A 100%)';
+// Para texto se omite el Deep Teal inicial, que sobre negro no se lee
+const VX_SPECTRAL_TEXT = 'linear-gradient(90deg, #2F5BFF 0%, #8B3DFF 40%, #FF3E8A 75%, #FF6A1A 100%)';
+const VX_ACCENTS =['text-[#2F5BFF]', 'text-[#8B3DFF]', 'text-[#FF3E8A]'];
+const VX_CHIPS = [
+  { box: 'border-[#2F5BFF]/60 bg-[#2F5BFF]/10', dot: 'bg-[#2F5BFF]' },
+  { box: 'border-[#8B3DFF]/60 bg-[#8B3DFF]/10', dot: 'bg-[#8B3DFF]' },
+  { box: 'border-[#FF3E8A]/60 bg-[#FF3E8A]/10', dot: 'bg-[#FF3E8A]' },
+  { box: 'border-[#FF6A1A]/60 bg-[#FF6A1A]/10', dot: 'bg-[#FF6A1A]' },
+];
+
+// Isotipo de Vaultix: puerta de bóveda (disco + anillo) atravesada por una V, en un solo color
+function VaultixMark({ className = '' }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} aria-hidden>
+      <mask id="vx-mark" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+        <rect width="100" height="100" fill="#fff" />
+        <circle cx="50" cy="50" r="34" fill="none" stroke="#000" strokeWidth="3.2" />
+        <path d="M2.31 -6.32L50 70L97.69 -6.32" fill="none" stroke="#000" strokeWidth="8.5" strokeLinejoin="miter" />
+      </mask>
+      <circle cx="50" cy="50" r="46" fill="currentColor" mask="url(#vx-mark)" />
+    </svg>
+  );
+}
+
+function VaultixPanel({ exp }) {
+  return (
+    <div className="relative">
+      {/* Isotipo flotando sobre el panel (el manual pide no rotarlo) */}
+      <motion.div
+        className="absolute -top-5 right-3 sm:-top-20 sm:-right-8 z-20 w-16 h-16 sm:w-32 sm:h-32 p-2.5 sm:p-4 rounded-full bg-[#08090B] border border-[#8B93A1]/30 text-[#F2F1EC] shadow-[0_12px_40px_rgba(139,61,255,0.45)] pointer-events-none select-none"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+        role="img"
+        aria-label="Logo de Vaultix"
+      >
+        <VaultixMark className="w-full h-full" />
+      </motion.div>
+
+      <div className="relative p-6 sm:p-8 overflow-hidden isolate bg-[#08090B] border-2 border-[#16191F] shadow-[6px_6px_0_#8B3DFF]">
+        {/* Bandas del gradiente Spectral: arriba a la derecha, el resto queda en negro */}
+        <motion.div
+          aria-hidden
+          className="absolute -top-28 -right-32 w-[340px] h-40 -rotate-[24deg] blur-[60px] -z-10"
+          style={{ backgroundImage: VX_SPECTRAL }}
+          animate={{ x: [0, -24, 0], opacity: [0.3, 0.45, 0.3] }}
+          transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        <div aria-hidden className="grain absolute inset-0 opacity-[0.06] -z-10" />
+
+        <div className="flex items-start justify-between gap-4 mb-2 pr-20 sm:pr-16">
+          <h3 className="font-display uppercase text-3xl leading-none text-[#F2F1EC]">{exp.role}</h3>
+        </div>
+        <div className="flex flex-wrap items-center gap-3 mb-4">
+          <p
+            className="font-mono text-xs font-bold uppercase tracking-[0.12em] bg-clip-text text-transparent"
+            style={{ backgroundImage: VX_SPECTRAL_TEXT }}
+          >
+            {exp.company}
+          </p>
+          <span className="font-mono text-[11px] px-2.5 py-1 border border-[#8B93A1]/50 text-[#F2F1EC]">
+            {exp.period}
+          </span>
+        </div>
+
+        <div className="flex flex-wrap gap-2 mb-5">
+          {exp.tags.map((tag, i) => {
+            const chip = VX_CHIPS[i % VX_CHIPS.length];
+            return (
+              <span
+                key={tag}
+                className={`inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] px-2.5 py-1 border text-[#F2F1EC] ${chip.box}`}
+              >
+                <span aria-hidden className={`w-1.5 h-1.5 rotate-45 ${chip.dot}`} />
+                {tag}
+              </span>
+            );
+          })}
+        </div>
+
+        <p className="text-[#8B93A1] mb-6">{exp.description}</p>
+
+        {/* Recorrido de una orden, como en la UI de Vaultix */}
+        {exp.track && (
+          <div className="grid grid-cols-4 gap-1.5 mb-7" aria-hidden>
+            {exp.track.map((step, i) => (
+              <div key={step} className="min-w-0">
+                <div className="h-[3px] bg-[#16191F] overflow-hidden mb-2">
+                  <motion.div
+                    className="h-full"
+                    style={{ backgroundImage: VX_SPECTRAL, backgroundSize: '400% 100%', backgroundPosition: `${(i / 3) * 100}% 0` }}
+                    initial={{ width: '0%' }}
+                    animate={{ width: ['0%', '100%', '100%', '0%'] }}
+                    transition={{ duration: 6, times: [0, 0.15, 0.85, 1], repeat: Infinity, delay: i * 0.9, ease: 'easeOut' }}
+                  />
+                </div>
+                <p className="font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.08em] text-[#8B93A1] truncate">
+                  {step}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className="space-y-4">
+          {exp.highlights.map((h, i) => (
+            <div key={i} className="flex gap-3">
+              <span className="shrink-0 w-8 h-8 flex items-center justify-center border border-[#8B93A1]/25 bg-[#16191F]">
+                <h.icon className={`w-[18px] h-[18px] ${VX_ACCENTS[i % VX_ACCENTS.length]}`} />
+              </span>
+              <div>
+                <p className="font-mono text-xs font-bold uppercase tracking-[0.12em] text-[#F2F1EC] mb-1">
+                  {h.title}
+                </p>
+                <p className="text-[#8B93A1] text-sm">{h.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function DefaultPanel({ exp }) {
   return (
     <div className="relative p-6 sm:p-8 bg-surface-light dark:bg-surface-dark border-2 border-text-light/80 dark:border-text-secondary-dark/30 shadow-[6px_6px_0_var(--color-accent-light)] dark:shadow-[6px_6px_0_var(--color-accent-dark)]">
@@ -169,6 +295,7 @@ export default function Experience() {
               {items.map((exp) => {
                 const isActive = activeId === exp.id;
                 const isAstro = exp.theme === 'astroam';
+                const isVaultix = exp.theme === 'vaultix';
                 return (
                   <motion.button
                     key={exp.id}
@@ -182,7 +309,9 @@ export default function Experience() {
                           ? 'border-transparent'
                           : isAstro
                             ? 'border-[#6A45FF]/45 hover:border-[#2FD0DD]/70'
-                            : 'border-text-light/30 dark:border-text-secondary-dark/25 hover:border-accent-light dark:hover:border-accent-dark'
+                            : isVaultix
+                              ? 'border-[#8B3DFF]/45 hover:border-[#2F5BFF]/70'
+                              : 'border-text-light/30 dark:border-text-secondary-dark/25 hover:border-accent-light dark:hover:border-accent-dark'
                       }
                     `}
                   >
@@ -193,9 +322,19 @@ export default function Experience() {
                         className={`absolute inset-0 ${
                           isAstro
                             ? 'bg-gradient-to-r from-[#6A45FF] to-[#2FD0DD] shadow-[4px_4px_0_#FDDA24]'
-                            : 'bg-accent-light dark:bg-accent-dark shadow-[4px_4px_0_var(--color-ink)] dark:shadow-[4px_4px_0_var(--color-paper)]'
+                            : isVaultix
+                              ? 'bg-[#08090B] shadow-[4px_4px_0_#8B3DFF]'
+                              : 'bg-accent-light dark:bg-accent-dark shadow-[4px_4px_0_var(--color-ink)] dark:shadow-[4px_4px_0_var(--color-paper)]'
                         }`}
-                      />
+                      >
+                        {isVaultix && (
+                          <span
+                            aria-hidden
+                            className="absolute inset-x-0 bottom-0 h-[3px]"
+                            style={{ backgroundImage: VX_SPECTRAL }}
+                          />
+                        )}
+                      </motion.span>
                     )}
                     <p
                       className={`relative z-10 font-display uppercase text-lg leading-tight tracking-wide transition-colors duration-200 ${
@@ -209,6 +348,14 @@ export default function Experience() {
                           aria-hidden
                           className={`inline-block w-1.5 h-1.5 mr-2 align-middle ${
                             isActive ? 'bg-[#FDDA24]' : 'bg-[#6A45FF]'
+                          }`}
+                        />
+                      )}
+                      {isVaultix && (
+                        <span
+                          aria-hidden
+                          className={`inline-block w-1.5 h-1.5 mr-2 align-middle rotate-45 ${
+                            isActive ? 'bg-[#F2F1EC]' : 'bg-[#8B3DFF]'
                           }`}
                         />
                       )}
@@ -239,6 +386,8 @@ export default function Experience() {
               >
                 {active.theme === 'astroam' ? (
                   <AstroamPanel exp={active} />
+                ) : active.theme === 'vaultix' ? (
+                  <VaultixPanel exp={active} />
                 ) : (
                   <DefaultPanel exp={active} />
                 )}

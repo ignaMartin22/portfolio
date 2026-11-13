@@ -1,8 +1,37 @@
 import {
   TbBolt, TbServer, TbCode, TbRocket, TbTrophy, TbWallet, TbFileCertificate,
+  TbLock, TbUserCheck, TbPlugConnected,
 } from 'react-icons/tb';
 
 const es = [
+  {
+    id: 'vaultix',
+    company: 'Vaultix · Proyecto propio',
+    role: 'Full-Stack / Web3 Developer',
+    period: '2026',
+    theme: 'vaultix',
+    tags: ['Solana', 'Rust + Anchor', 'Next.js', 'USDC'],
+    description:
+      'Diseñé y desarrollé solo Vaultix, un escrow P2P en Solana para compraventas por Instagram, WhatsApp o Marketplace: el comprador paga con un link y la plata queda en una bóveda on-chain hasta que el producto llega. Del contrato on-chain a la interfaz, pasando por el backend.',
+    track: ['Creado', 'En bóveda', 'Enviado', 'Liberado'],
+    highlights: [
+      {
+        icon: TbLock,
+        title: 'Programa escrow',
+        text: 'Programa en Rust + Anchor con una vault por orden (PDA) y una máquina de estados completa: pago, envío, liberación, reembolso, disputa y resolución. Plazos on-chain y tests para cada transición.',
+      },
+      {
+        icon: TbUserCheck,
+        title: 'Cripto sin fricción',
+        text: 'Login con email o Google (Privy) y transacciones patrocinadas por el backend: el usuario no ve seed phrases ni necesita SOL, y la UI no usa jerga cripto.',
+      },
+      {
+        icon: TbPlugConnected,
+        title: 'Backend e indexado',
+        text: 'Next.js API routes + Supabase, eventos on-chain indexados con un webhook de Helius, un cron que ejecuta liberaciones y reembolsos vencidos y un panel para resolver disputas.',
+      },
+    ],
+  },
   {
     id: 'astroam',
     company: 'AstroAm · Hackatones Web3',
@@ -77,6 +106,34 @@ const es = [
 ];
 
 const en = [
+  {
+    id: 'vaultix',
+    company: 'Vaultix · Own project',
+    role: 'Full-Stack / Web3 Developer',
+    period: '2026',
+    theme: 'vaultix',
+    tags: ['Solana', 'Rust + Anchor', 'Next.js', 'USDC'],
+    description:
+      'I designed and built Vaultix on my own, a P2P escrow on Solana for sales through Instagram, WhatsApp or Marketplace: the buyer pays through a link and the money stays in an on-chain vault until the product arrives. From the on-chain contract to the interface, including the backend.',
+    track: ['Created', 'In vault', 'Shipped', 'Released'],
+    highlights: [
+      {
+        icon: TbLock,
+        title: 'Escrow program',
+        text: 'A Rust + Anchor program with one vault per order (PDA) and a full state machine: payment, shipping, release, refund, dispute and resolution. On-chain deadlines and tests for every transition.',
+      },
+      {
+        icon: TbUserCheck,
+        title: 'Frictionless crypto',
+        text: 'Sign-in with email or Google (Privy) and transactions sponsored by the backend: users never see seed phrases or need SOL, and the UI avoids crypto jargon.',
+      },
+      {
+        icon: TbPlugConnected,
+        title: 'Backend and indexing',
+        text: 'Next.js API routes + Supabase, on-chain events indexed through a Helius webhook, a cron that executes expired releases and refunds, and a panel to resolve disputes.',
+      },
+    ],
+  },
   {
     id: 'astroam',
     company: 'AstroAm · Web3 Hackathons',

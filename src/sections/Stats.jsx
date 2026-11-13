@@ -24,9 +24,14 @@ function CountUp({ to, suffix }) {
   }, [inView, reduced, to]);
 
   return (
-    <span ref={ref} className="tabular-nums">
+    <span ref={ref} className="tabular-nums whitespace-nowrap">
       {value}
-      {suffix}
+      {/* Sufijos largos ("/100") van más chicos para no desbordar la tarjeta en mobile */}
+      {suffix && suffix.length > 1 ? (
+        <span className="text-[0.45em] align-baseline ml-0.5">{suffix}</span>
+      ) : (
+        suffix
+      )}
     </span>
   );
 }
@@ -53,7 +58,7 @@ export default function Stats() {
               <div
                 key={item.label}
                 className="
-                  group relative px-5 py-8 sm:py-10 text-left
+                  group relative min-w-0 px-4 sm:px-5 py-8 sm:py-10 text-left
                   bg-surface-light dark:bg-surface-dark
                   border-2 border-text-light/80 dark:border-text-secondary-dark/30
                   hover:-translate-x-0.5 hover:-translate-y-0.5
@@ -61,7 +66,7 @@ export default function Stats() {
                   transition-[transform,box-shadow] duration-200
                 "
               >
-                <p className="font-display text-6xl sm:text-7xl leading-none text-text-light dark:text-text-dark mb-4 transition-colors duration-200 group-hover:text-accent-light dark:group-hover:text-accent-dark">
+                <p className="font-display text-5xl sm:text-7xl leading-none text-text-light dark:text-text-dark mb-4 transition-colors duration-200 group-hover:text-accent-light dark:group-hover:text-accent-dark">
                   <CountUp to={item.value} suffix={item.suffix} />
                 </p>
                 <p className="font-mono text-[11px] uppercase tracking-[0.1em] leading-snug text-text-secondary-light dark:text-text-secondary-dark">
