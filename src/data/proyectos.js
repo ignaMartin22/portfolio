@@ -1,7 +1,23 @@
 import {
-  SiAngular, SiCloudinary, SiExpo, SiExpress, SiJsonwebtokens, SiMongodb,
+  SiAngular, SiCloudinary, SiExpo, SiExpress, SiJsonwebtokens, SiMongodb, SiNextdotjs,
   SiNodedotjs, SiReact, SiRust, SiSolana, SiSolidity, SiSupabase, SiTailwindcss, SiTypescript, SiVercel,
 } from 'react-icons/si';
+
+const vaultixImages = [
+  '/vaultix-img1.jpg',
+  '/vaultix-img2.jpg',
+  '/vaultix-img3.jpg',
+];
+
+const vaultixTech = [
+  { name: 'Next.js', icon: SiNextdotjs },
+  { name: 'TypeScript', icon: SiTypescript },
+  { name: 'Tailwind', icon: SiTailwindcss },
+  { name: 'Solana', icon: SiSolana },
+  { name: 'Rust', icon: SiRust },
+  { name: 'Supabase', icon: SiSupabase },
+  { name: 'Vercel', icon: SiVercel },
+];
 
 const astroamImages = [
   '/astroam-img1.jpg',
@@ -20,6 +36,34 @@ const astroamTech = [
 ];
 
 const es = [
+  {
+    name: 'Vaultix',
+    tag: 'Web3 · Solana · Escrow P2P · Pagos en USDC',
+    description:
+      'Un link de pago protegido para comprar y vender por Instagram, WhatsApp o Marketplace con alguien que no conocés. El comprador paga en USDC y la plata queda bloqueada en una bóveda on-chain: no la tiene ni el vendedor ni la plataforma. Se libera cuando el comprador confirma que le llegó, o sola al vencer el plazo de reclamo. Login con email o Google, sin jerga cripto y sin necesitar SOL para las comisiones de red.',
+    images: vaultixImages,
+    link: 'https://vaultixpay.vercel.app/',
+    linkLabel: 'Ver demo',
+    extraLinks: [
+      { label: 'Repositorio', url: 'https://github.com/ignaMartin22/Vaultix' },
+    ],
+    coverNote: 'Web3 · Solana devnet',
+    tech: vaultixTech,
+    caseStudy: {
+      problem:
+        'En la compraventa entre particulares alguien tiene que confiar primero: si el comprador transfiere, se arriesga a no recibir nada; si el vendedor envía, se arriesga a un comprobante de transferencia falso, una estafa muy común en Argentina. Las alternativas son Mercado Libre, con comisiones altas, o encontrarse en persona.',
+      solution:
+        'Escrow P2P en Solana: el vendedor crea un link con producto, precio y plazos y lo comparte. El comprador paga y los fondos van a una vault propia de esa orden (PDA). Si el vendedor no despacha en 5 días, el comprador recupera todo; si nadie reclama dentro de 7 días del envío, el vendedor cobra solo. Ante un problema, el comprador abre una disputa con depósito de garantía y un árbitro decide reembolsar, liberar o dividir.',
+      highlights: [
+        'Programa en Rust + Anchor con máquina de estados completa (pago, envío, liberación, reembolso, disputa y resolución), aritmética checked y tests para cada transición y plazo vencido.',
+        'Onboarding con Privy (email o Google con cuenta embebida, o Phantom/Solflare) y transacciones patrocinadas por un fee payer del backend: el usuario nunca ve una seed phrase ni necesita SOL.',
+        'Backend con Next.js API routes + Supabase, indexado de eventos on-chain con webhook de Helius, cron que ejecuta liberaciones y reembolsos vencidos, y panel de administración de disputas.',
+        'Links con Open Graph dinámico (foto, precio y sello "Pago protegido" en WhatsApp), referencia en pesos y UI mobile-first con hero en WebGPU.',
+      ],
+      result:
+        'MVP funcionando de punta a punta en Solana devnet, con la plataforma sin custodiar fondos y cada operación verificable on-chain. Comisión del 1,5% solo cuando el vendedor cobra.',
+    },
+  },
   {
     name: 'AstroAm',
     tag: 'Web3 · Solana + Monad · Pagos en USDC · eSIM',
@@ -118,6 +162,34 @@ const es = [
 ];
 
 const en = [
+  {
+    name: 'Vaultix',
+    tag: 'Web3 · Solana · P2P escrow · USDC payments',
+    description:
+      'A protected payment link to buy and sell through Instagram, WhatsApp or Marketplace with someone you don\'t know. The buyer pays in USDC and the money is locked in an on-chain vault: neither the seller nor the platform holds it. It is released when the buyer confirms delivery, or automatically when the claim window expires. Sign in with email or Google, no crypto jargon and no SOL needed for network fees.',
+    images: vaultixImages,
+    link: 'https://vaultixpay.vercel.app/',
+    linkLabel: 'View demo',
+    extraLinks: [
+      { label: 'Repository', url: 'https://github.com/ignaMartin22/Vaultix' },
+    ],
+    coverNote: 'Web3 · Solana devnet',
+    tech: vaultixTech,
+    caseStudy: {
+      problem:
+        'In peer-to-peer sales someone has to trust first: if the buyer pays first, they risk getting nothing; if the seller ships first, they risk a fake transfer receipt, a very common scam in Argentina. The alternatives are Mercado Libre, with high fees, or meeting in person.',
+      solution:
+        'P2P escrow on Solana: the seller creates a link with the product, price and deadlines and shares it. The buyer pays and the funds go into a vault owned by that order (PDA). If the seller doesn\'t ship within 5 days, the buyer gets everything back; if nobody files a claim within 7 days of shipping, the seller gets paid automatically. If something goes wrong, the buyer opens a dispute with a guarantee deposit and an arbiter decides to refund, release or split.',
+      highlights: [
+        'Rust + Anchor program with a full state machine (payment, shipping, release, refund, dispute and resolution), checked arithmetic and tests for every transition and expired deadline.',
+        'Onboarding with Privy (email or Google with an embedded account, or Phantom/Solflare) and transactions sponsored by a backend fee payer: users never see a seed phrase or need SOL.',
+        'Backend with Next.js API routes + Supabase, on-chain event indexing via a Helius webhook, a cron that executes expired releases and refunds, and a dispute admin panel.',
+        'Links with dynamic Open Graph (photo, price and a "Protected payment" seal on WhatsApp), peso reference prices and a mobile-first UI with a WebGPU hero.',
+      ],
+      result:
+        'An end-to-end working MVP on Solana devnet, with the platform never holding funds and every operation verifiable on-chain. A 1.5% fee, charged only when the seller gets paid.',
+    },
+  },
   {
     name: 'AstroAm',
     tag: 'Web3 · Solana + Monad · USDC payments · eSIM',
