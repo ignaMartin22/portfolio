@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { HiArrowUpRight } from 'react-icons/hi2';
-import { comunidad } from '../data/comunidad';
+import { TbTrophy } from 'react-icons/tb';
+import { comunidad, hackaton } from '../data/comunidad';
 import ProjectCarousel from '../components/ProjectCarousel';
 import Reveal from '../components/Reveal';
 import SectionTitle from '../components/SectionTitle';
@@ -161,7 +162,117 @@ export default function Community() {
           </div>
           </div>
         </Reveal>
+
+        <Reveal delay={0.1}>
+          <HackathonCard />
+        </Reveal>
       </div>
     </section>
+  );
+}
+
+// Naranja del Tren Solar de la Quebrada → terracota de Yaku
+const TS_GRADIENT = 'from-[#f26a2e] via-[#d9381e] to-[#6e180a]';
+
+function HackathonCard() {
+  const { lang } = useLanguage();
+  const h = hackaton[lang];
+
+  return (
+    <div className="relative mt-20 sm:mt-24">
+      {/* Sticker de Yaku pegado con cinta en la esquina izquierda */}
+      <motion.div
+        className="absolute -top-12 -left-3 sm:-top-14 sm:-left-8 z-20 w-24 sm:w-32 pointer-events-none select-none"
+        initial={{ rotate: -8 }}
+        animate={{ rotate: [-6, -10, -6] }}
+        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        <div className="aspect-square rounded-full bg-[#140d0c] grid place-items-center shadow-[0_14px_30px_rgba(0,0,0,0.4)]">
+          <img src="/yaku-isotipo.svg" alt="Isotipo de Yaku" width="515" height="633" loading="lazy" className="w-[58%] h-auto" />
+        </div>
+        <span aria-hidden className="absolute -top-1 left-1/2 -translate-x-1/2 rotate-[12deg] w-14 sm:w-16 h-5 bg-highlight/80" />
+      </motion.div>
+
+      <div className={`relative z-10 p-[2px] bg-gradient-to-br ${TS_GRADIENT} shadow-[6px_6px_0_#d9381e]`}>
+        <div className="relative overflow-hidden isolate bg-bg-light dark:bg-bg-dark p-6 sm:p-8 lg:p-10">
+          <motion.div
+            aria-hidden
+            className="absolute -top-28 -left-24 w-80 h-80 rounded-full bg-[#f26a2e]/15 blur-[100px] -z-10"
+            animate={{ scale: [1, 1.15, 1] }}
+            transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+          />
+
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            {/* Info */}
+            <div className="order-2 lg:order-1 lg:pt-10">
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-[#d9381e] dark:text-[#f58a5c] mb-2">
+                {h.kicker}
+              </p>
+              <h3 className="font-display uppercase text-4xl md:text-5xl leading-[0.95] text-text-light dark:text-text-dark">
+                {h.name}
+              </h3>
+              <p className="font-mono text-xs text-text-secondary-light dark:text-text-secondary-dark mt-1 mb-5">
+                {h.tagline}
+              </p>
+
+              <span className={`inline-flex items-center gap-2 px-3 pt-1.5 pb-1 mb-6 -rotate-2 font-display uppercase text-base tracking-wide leading-none text-white bg-gradient-to-r ${TS_GRADIENT} shadow-[3px_3px_0_var(--color-ink)]`}>
+                <TbTrophy className="w-4 h-4 -mt-0.5" />
+                {h.role}
+              </span>
+
+              <p className="text-text-secondary-light dark:text-text-secondary-dark mb-8">
+                {h.description}
+              </p>
+
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-text-secondary-light dark:text-text-secondary-dark mb-3">
+                {h.stepsLabel}
+              </p>
+              <ol className="relative border-l-2 border-dashed border-text-secondary-light/30 dark:border-text-secondary-dark/30 ml-1.5 space-y-4 mb-8">
+                {h.steps.map((st) => (
+                  <li key={st.name} className="pl-5 relative">
+                    <span aria-hidden className={`absolute -left-[7px] top-1.5 w-3 h-3 rotate-45 bg-gradient-to-br ${TS_GRADIENT}`} />
+                    <p className="text-sm text-text-light dark:text-text-dark font-medium">
+                      <span className="font-mono text-xs text-[#d9381e] dark:text-[#f58a5c] mr-2">{st.date}</span>
+                      {st.href ? (
+                        <a href={st.href} className="underline decoration-dashed underline-offset-4 hover:text-[#d9381e] dark:hover:text-[#f58a5c]">
+                          {st.name}
+                        </a>
+                      ) : (
+                        st.name
+                      )}
+                    </p>
+                    <p className="text-xs text-text-secondary-light dark:text-text-secondary-dark mt-0.5">
+                      {st.detail}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+
+              <div className="flex flex-wrap gap-4">
+                {h.links.map(({ label, url, icon: Icon }) => (
+                  <a
+                    key={url}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/ts btn-brand btn-ghost gap-2"
+                  >
+                    <Icon className="w-4 h-4" />
+                    {label}
+                    <HiArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/ts:translate-x-0.5 group-hover/ts:-translate-y-0.5" />
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Fotos del día, pegadas sobre papel */}
+            <div className="order-1 lg:order-2 relative p-2.5 sm:p-3 rotate-[1deg] bg-surface-light dark:bg-paper border border-ink/10 dark:border-transparent shadow-[0_18px_40px_rgba(11,11,16,0.25)] dark:shadow-[0_18px_40px_rgba(0,0,0,0.5)]">
+              <span aria-hidden className="absolute -top-3 right-8 z-20 w-24 h-6 rotate-[4deg] bg-highlight/75" />
+              <ProjectCarousel images={h.images} alt={h.imagesAlt} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

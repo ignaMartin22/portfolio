@@ -1,4 +1,4 @@
-import { SiInstagram, SiX } from 'react-icons/si';
+import { SiGithub, SiInstagram, SiX } from 'react-icons/si';
 import { TbAffiliate, TbTrophy, TbUsersGroup, TbWorld } from 'react-icons/tb';
 
 const images = ['/jujuydev-hackaton.jpg', '/jujuydev-img1.jpg', '/jujuydev-img2.jpg'];
@@ -87,4 +87,53 @@ const en = {
   links,
 };
 
+const hackatonImages = [
+  '/tren-solar-img1.jpg',
+  '/tren-solar-img2.jpg',
+  '/tren-solar-img3.jpg',
+  '/tren-solar-img4.jpg',
+];
+
+const hackatonLinks = [
+  { label: 'Yaku', url: 'https://hacka-tren-solar.vercel.app/', icon: TbWorld },
+  { label: 'GitHub', url: 'https://github.com/ignaMartin22/hacka-tren-solar', icon: SiGithub },
+];
+
+const hackatonEs = {
+  kicker: 'Hackatón',
+  name: 'Cursor Hackathon',
+  tagline: 'A bordo del Tren Solar de la Quebrada · Jujuy',
+  role: 'Top 30 del prehackatón',
+  description:
+    'Después de clasificar entre los 30 mejores del prehackatón en Jujuy, me gané un lugar en la Cursor Hackathon, que se hizo a bordo del Tren Solar de la Quebrada. Un día de código entre vagones y cerros de colores: en equipo de cinco construimos Yaku, alertas satelitales para el agua del norte jujeño, y yo llevé el frontend.',
+  stepsLabel: 'El camino',
+  steps: [
+    { date: 'Prehackatón', name: 'Entre los 30 mejores de Jujuy', detail: 'La clasificación para subir al tren' },
+    { date: '22 nov', name: 'Hackatón a bordo del Tren Solar', detail: 'Un día programando por la Quebrada de Humahuaca' },
+    { date: 'Resultado', name: 'Yaku', detail: 'Semáforo de riesgo de aludes y sequía · frontend a mi cargo', href: '#projects' },
+  ],
+  images: hackatonImages,
+  imagesAlt: 'Fotos del día de la hackatón en el Tren Solar',
+  links: hackatonLinks,
+};
+
+const hackatonEn = {
+  kicker: 'Hackathon',
+  name: 'Cursor Hackathon',
+  tagline: 'Aboard the Tren Solar de la Quebrada · Jujuy',
+  role: 'Top 30 of the pre-hackathon',
+  description:
+    'After placing in the top 30 of the Jujuy pre-hackathon, I earned a spot at the Cursor Hackathon, held aboard the Tren Solar de la Quebrada, a solar-powered train. One day of coding between train cars and colored hills: as a team of five we built Yaku, satellite alerts for water in northern Jujuy, and I owned the frontend.',
+  stepsLabel: 'The road',
+  steps: [
+    { date: 'Pre-hackathon', name: 'Top 30 in Jujuy', detail: 'The qualifier to get on the train' },
+    { date: 'Nov 22', name: 'Hackathon aboard the Tren Solar', detail: 'A day of coding across the Quebrada de Humahuaca' },
+    { date: 'Result', name: 'Yaku', detail: 'Landslide and drought risk traffic light · I owned the frontend', href: '#projects' },
+  ],
+  images: hackatonImages,
+  imagesAlt: 'Photos from the hackathon day on the Tren Solar',
+  links: hackatonLinks,
+};
+
 export const comunidad = { es, en };
+export const hackaton = { es: hackatonEs, en: hackatonEn };

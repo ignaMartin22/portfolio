@@ -1,7 +1,28 @@
 import {
-  SiAngular, SiCloudinary, SiExpo, SiExpress, SiJsonwebtokens, SiMongodb, SiNextdotjs,
-  SiNodedotjs, SiReact, SiRust, SiSolana, SiSolidity, SiSupabase, SiTailwindcss, SiTypescript, SiVercel,
+  SiAngular, SiCloudinary, SiExpo, SiExpress, SiJsonwebtokens, SiLeaflet, SiMongodb, SiNasa, SiNextdotjs,
+  SiNodedotjs, SiPostgresql, SiReact, SiRust, SiSolana, SiSolidity, SiSupabase, SiTailwindcss, SiTelegram,
+  SiTypescript, SiVercel, SiVite,
 } from 'react-icons/si';
+
+const yakuImages = [
+  '/yaku-portada.jpg',
+  '/yaku-img1.jpg',
+  '/yaku-img2.jpg',
+  '/yaku-img3.jpg',
+];
+
+const yakuTech = [
+  { name: 'React', icon: SiReact },
+  { name: 'TypeScript', icon: SiTypescript },
+  { name: 'Vite', icon: SiVite },
+  { name: 'Tailwind', icon: SiTailwindcss },
+  { name: 'Leaflet', icon: SiLeaflet },
+  { name: 'NASA GIBS', icon: SiNasa },
+  { name: 'Node.js', icon: SiNodedotjs },
+  { name: 'PostgreSQL', icon: SiPostgresql },
+  { name: 'Telegram', icon: SiTelegram },
+  { name: 'Vercel', icon: SiVercel },
+];
 
 const vaultixImages = [
   '/vaultix-portada.jpg',
@@ -63,6 +84,35 @@ const es = [
       ],
       result:
         'MVP funcionando de punta a punta en Solana devnet, con la plataforma sin custodiar fondos y cada operación verificable on-chain. Comisión del 1,5% solo cuando el vendedor cobra.',
+    },
+  },
+  {
+    name: 'Yaku',
+    tag: 'Alertas tempranas · Datos satelitales · Mapa interactivo',
+    highlight: 'Cursor Hackathon · a bordo del Tren Solar',
+    description:
+      'Alertas satelitales para el agua del norte jujeño. "Yaku" significa agua en quechua: la plataforma cruza datos satelitales y de modelos meteorológicos para mostrar un semáforo de riesgo por zona, con aludes en la Quebrada cuando sobra agua y sequía en la Puna cuando falta. Lo construimos en equipo de cinco durante la Cursor Hackathon, a bordo del Tren Solar de la Quebrada, el 22 de noviembre de 2026; yo me encargué del frontend.',
+    images: yakuImages,
+    link: 'https://hacka-tren-solar.vercel.app/',
+    linkLabel: 'Ver demo',
+    extraLinks: [
+      { label: 'Repositorio', url: 'https://github.com/ignaMartin22/hacka-tren-solar' },
+    ],
+    coverNote: 'Hackatón · Hecho en un día',
+    tech: yakuTech,
+    caseStudy: {
+      problem:
+        'En la Quebrada de Humahuaca las lluvias fuertes sobre suelo saturado provocan aludes, como el de Volcán en enero de 2017; en la Puna el problema es el contrario, la sequía. La información existe (satélites, modelos meteorológicos) pero no llega a tiempo ni en un formato que un vecino o un municipio pueda usar.',
+      solution:
+        'Un semáforo de riesgo para 8 zonas: 6 de la Quebrada con riesgo de aludes y 2 de la Puna con riesgo de sequía. Cada nivel explica sus motivos, muestra la tendencia de los últimos 7 días y puede enviar avisos por Telegram. El NARANJA se envía automático; el ROJO solo cuando lo confirma una persona responsable desde la vista institucional.',
+      highlights: [
+        'Mi parte: el frontend completo en React + TypeScript + Tailwind, mobile first: mapa Leaflet con etiquetas que no se superponen y que sigue a la zona elegida, ficha de riesgo con motivos y estados de carga.',
+        'Gráfico de tendencia de 7 días (lluvia y humedad del suelo con el nivel de cada día) y capa satelital de NASA GIBS con lluvia IMERG y vegetación NDVI.',
+        'Modo Replay que reproduce día a día cómo habría subido el semáforo antes del alud de Volcán de 2017, página pública de suscripción por Telegram y vista institucional con confirmación del ROJO.',
+        'Trabajo en paralelo con el backend: contratos de API propuestos con mocks para avanzar sin bloquearnos, y la integración final con routing por hash.',
+      ],
+      result:
+        'Una plataforma funcionando, hoy publicada en Vercel, con datos reales de Open-Meteo, Replay de un evento histórico y avisos listos para Telegram. Parte de mi participación en la hackatón después de quedar entre los 30 mejores del prehackatón en Jujuy.',
     },
   },
   {
@@ -192,6 +242,35 @@ const en = [
       ],
       result:
         'An end-to-end working MVP on Solana devnet, with the platform never holding funds and every operation verifiable on-chain. A 1.5% fee, charged only when the seller gets paid.',
+    },
+  },
+  {
+    name: 'Yaku',
+    tag: 'Early warnings · Satellite data · Interactive map',
+    highlight: 'Cursor Hackathon · aboard the Tren Solar',
+    description:
+      'Satellite alerts for water in northern Jujuy, Argentina. "Yaku" means water in Quechua: the platform combines satellite and weather-model data into a risk traffic light per zone, with landslides in the Quebrada when there is too much water and drought in the Puna when there is too little. We built it as a team of five during the Cursor Hackathon, aboard the Tren Solar de la Quebrada, on November 22, 2026; I owned the frontend.',
+    images: yakuImages,
+    link: 'https://hacka-tren-solar.vercel.app/',
+    linkLabel: 'View demo',
+    extraLinks: [
+      { label: 'Repository', url: 'https://github.com/ignaMartin22/hacka-tren-solar' },
+    ],
+    coverNote: 'Hackathon · Built in one day',
+    tech: yakuTech,
+    caseStudy: {
+      problem:
+        'In the Quebrada de Humahuaca, heavy rain on saturated soil causes landslides, like the one in Volcán in January 2017; in the Puna the problem is the opposite: drought. The data exists (satellites, weather models), but it doesn\'t arrive in time or in a form a resident or a town council can use.',
+      solution:
+        'A risk traffic light for 8 zones: 6 in the Quebrada with landslide risk and 2 in the Puna with drought risk. Each level explains its reasons, shows the last 7 days and can send warnings through Telegram. ORANGE is sent automatically; RED only when a responsible person confirms it from the institutional view.',
+      highlights: [
+        'My part: the whole frontend in React + TypeScript + Tailwind, mobile first: a Leaflet map with non-overlapping labels that follows the selected zone, a risk card with its reasons, and loading states.',
+        '7-day trend chart (rain and soil moisture with each day\'s level) and a NASA GIBS satellite layer with IMERG rain and NDVI vegetation.',
+        'Replay mode that plays back, day by day, how the traffic light would have risen before the 2017 Volcán landslide, a public Telegram subscription page and an institutional view to confirm RED alerts.',
+        'Working in parallel with the backend: proposed API contracts with mocks so neither side was blocked, then the final integration with hash routing.',
+      ],
+      result:
+        'A working platform, now live on Vercel, with real Open-Meteo data, a replay of a historical event and warnings ready for Telegram. Part of my run at the hackathon after placing in the top 30 of the Jujuy pre-hackathon.',
     },
   },
   {
